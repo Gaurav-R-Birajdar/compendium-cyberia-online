@@ -7,7 +7,7 @@ export interface Resource {
   category: string;
   tags: string[];
   featured?: boolean;
-  image?: string;
+  thumbnail?: string;
 }
 
 export const categories = [
@@ -59,7 +59,7 @@ export const resources: Resource[] = [
     category: 'programming-languages',
     tags: ['javascript', 'web development', 'beginner'],
     featured: true,
-    image: '/placeholder.svg'
+    thumbnail: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6'
   },
   {
     id: '2',
@@ -70,7 +70,7 @@ export const resources: Resource[] = [
     category: 'programming-languages',
     tags: ['python', 'beginner', 'programming'],
     featured: true,
-    image: '/placeholder.svg'
+    thumbnail: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b'
   },
   {
     id: '3',
@@ -101,7 +101,7 @@ export const resources: Resource[] = [
     category: 'web-development',
     tags: ['react', 'javascript', 'web development'],
     featured: true,
-    image: '/placeholder.svg'
+    thumbnail: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d'
   },
   {
     id: '6',
