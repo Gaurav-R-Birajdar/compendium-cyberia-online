@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { categories } from '@/data/resources';
 
 const CategorySection = () => {
@@ -15,14 +16,17 @@ const CategorySection = () => {
           {categories.map((category) => (
             <div 
               key={category.id} 
-              className="glass-card rounded-lg p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-cyber-teal/10 cursor-pointer"
+              className="glass-card rounded-lg p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-cyber-teal/10"
             >
               <div className="text-4xl mb-4">{category.icon}</div>
               <h3 className="text-xl font-display font-medium mb-2 text-white">{category.name}</h3>
               <p className="text-cyber-slate text-sm mb-4">{category.description}</p>
-              <a href={`#${category.id}`} className="text-cyber-teal text-sm hover:text-cyber-teal/80 transition-colors">
+              <Link 
+                to={`/category/${category.id}`} 
+                className="text-cyber-teal text-sm hover:text-cyber-teal/80 transition-colors"
+              >
                 View resources →
-              </a>
+              </Link>
             </div>
           ))}
         </div>
