@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,15 +53,13 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
+				cyber: {
+					'blue': '#0a192f',
+					'dark': '#020c1b',
+					'purple': '#8b5cf6',
+					'teal': '#64ffda',
+					'pink': '#f471b5',
+					'slate': '#8892b0'
 				}
 			},
 			borderRadius: {
@@ -70,25 +69,43 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
+				},
+				'pulse-slow': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.8' }
+				},
+				'glow': {
+					'0%, 100%': { 
+						textShadow: '0 0 15px rgba(100, 255, 218, 0.5), 0 0 10px rgba(100, 255, 218, 0.2)' 
 					},
-					to: {
-						height: '0'
+					'50%': { 
+						textShadow: '0 0 20px rgba(100, 255, 218, 0.8), 0 0 15px rgba(100, 255, 218, 0.3)' 
 					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-slow': 'pulse-slow 4s ease-in-out infinite',
+				'glow': 'glow 3s ease-in-out infinite'
+			},
+			fontFamily: {
+				'code': ['Source Code Pro', 'monospace'],
+				'sans': ['Inter', 'sans-serif'],
+				'display': ['Space Grotesk', 'sans-serif']
+			},
+			backgroundImage: {
+				'cyber-grid': 'linear-gradient(rgba(10, 25, 47, 0.9) 1px, transparent 1px), linear-gradient(90deg, rgba(10, 25, 47, 0.9) 1px, transparent 1px)',
+				'cta-gradient': 'linear-gradient(90deg, #8b5cf6, #f471b5)'
+			},
+			backgroundSize: {
+				'cyber-grid-size': '35px 35px'
 			}
 		}
 	},
