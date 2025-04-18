@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ExternalLink, Play, BookOpen, Film, List, Tool, Globe } from 'lucide-react';
+import { ExternalLink, Play, BookOpen, Film, List, Globe, Wrench } from 'lucide-react';
 import { Resource } from '@/data/resources';
 
 interface ResourceCardProps {
@@ -19,7 +19,7 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ resource }) => {
       case 'course':
         return <Film className="h-4 w-4 text-cyber-teal" />;
       case 'tool':
-        return <Tool className="h-4 w-4 text-cyber-purple" />;
+        return <Wrench className="h-4 w-4 text-cyber-purple" />; // Changed from Tool to Wrench
       case 'website':
         return <Globe className="h-4 w-4 text-cyber-pink" />;
       default:
