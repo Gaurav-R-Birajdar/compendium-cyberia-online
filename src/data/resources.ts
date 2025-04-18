@@ -1,4 +1,3 @@
-
 export interface Resource {
   id: string;
   title: string;
@@ -174,6 +173,98 @@ export const resources: Resource[] = [
     type: 'website',
     category: 'web-development',
     tags: ['php', 'laravel', 'web development'],
+    image: '/placeholder.svg'
+  },
+  {
+    id: '13',
+    title: 'HTML & CSS Full Course',
+    description: 'Complete HTML & CSS course from freeCodeCamp covering everything from basics to responsive design and flexbox.',
+    link: 'https://www.youtube.com/watch?v=mU6anWqZJcc',
+    type: 'video',
+    category: 'web-development',
+    tags: ['html', 'css', 'web development', 'beginner'],
+    image: '/placeholder.svg'
+  },
+  {
+    id: '14',
+    title: 'Node.js Tutorial for Beginners',
+    description: 'Learn Node.js fundamentals, Express.js, and building RESTful APIs in this comprehensive guide.',
+    link: 'https://www.youtube.com/watch?v=TlB_eWDSMt4',
+    type: 'video',
+    category: 'web-development',
+    tags: ['nodejs', 'express', 'backend'],
+    image: '/placeholder.svg'
+  },
+  {
+    id: '15',
+    title: 'Vue.js Course for Beginners',
+    description: 'Build modern web apps with Vue.js 3 - covers composition API, components, and routing.',
+    link: 'https://www.youtube.com/watch?v=FXpIoQ_rT_c',
+    type: 'video',
+    category: 'web-development',
+    tags: ['vue', 'javascript', 'frontend'],
+    image: '/placeholder.svg'
+  },
+  {
+    id: '16',
+    title: 'Python for Data Science Handbook',
+    description: 'Free online book covering NumPy, Pandas, Matplotlib, and Scikit-learn for data analysis.',
+    link: 'https://jakevdp.github.io/PythonDataScienceHandbook/',
+    type: 'website',
+    category: 'data-science',
+    tags: ['python', 'data science', 'pandas', 'numpy'],
+    featured: true,
+    image: '/placeholder.svg'
+  },
+  {
+    id: '17',
+    title: 'TensorFlow 2.0 Complete Course',
+    description: 'Learn deep learning with TensorFlow 2.0 - from basics to advanced neural networks.',
+    link: 'https://www.youtube.com/watch?v=tPYj3fFJGjk',
+    type: 'video',
+    category: 'data-science',
+    tags: ['tensorflow', 'deep learning', 'AI'],
+    image: '/placeholder.svg'
+  },
+  {
+    id: '18',
+    title: 'Data Visualization with Python',
+    description: 'Master data visualization using Matplotlib, Seaborn, and Plotly libraries.',
+    link: 'https://www.youtube.com/watch?v=z9qUrt0bR0Q',
+    type: 'playlist',
+    category: 'data-science',
+    tags: ['python', 'data visualization', 'matplotlib'],
+    image: '/placeholder.svg'
+  },
+  {
+    id: '19',
+    title: 'Java Programming Masterclass',
+    description: 'Comprehensive Java course covering core concepts, OOP, and advanced topics.',
+    link: 'https://www.youtube.com/watch?v=eIrMbAQSU34',
+    type: 'video',
+    category: 'programming-languages',
+    tags: ['java', 'programming', 'OOP'],
+    featured: true,
+    image: '/placeholder.svg'
+  },
+  {
+    id: '20',
+    title: 'C++ Programming Tutorial',
+    description: 'Learn C++ programming from scratch - covers basic to advanced concepts.',
+    link: 'https://www.youtube.com/watch?v=vLnPwxZdW4Y',
+    type: 'video',
+    category: 'programming-languages',
+    tags: ['c++', 'programming', 'algorithms'],
+    image: '/placeholder.svg'
+  },
+  {
+    id: '21',
+    title: 'Rust Programming Language Book',
+    description: 'Official Rust programming language book - comprehensive guide for beginners.',
+    link: 'https://doc.rust-lang.org/book/',
+    type: 'website',
+    category: 'programming-languages',
+    tags: ['rust', 'programming', 'systems'],
     image: '/placeholder.svg'
   }
 ];
