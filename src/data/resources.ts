@@ -245,7 +245,7 @@ export const resources: Resource[] = [
     category: 'programming-languages',
     tags: ['java', 'programming', 'OOP'],
     featured: true,
-    thumbnail: '/placeholder.svg'
+    thumbnail: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6'
   },
   {
     id: '20',
@@ -255,7 +255,7 @@ export const resources: Resource[] = [
     type: 'video',
     category: 'programming-languages',
     tags: ['c++', 'programming', 'algorithms'],
-    thumbnail: '/placeholder.svg'
+    thumbnail: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085'
   },
   {
     id: '21',
@@ -265,7 +265,7 @@ export const resources: Resource[] = [
     type: 'website',
     category: 'programming-languages',
     tags: ['rust', 'programming', 'systems'],
-    thumbnail: '/placeholder.svg'
+    thumbnail: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7'
   }
 ];
 
