@@ -1,4 +1,3 @@
-
 export interface Resource {
   id: string;
   title: string;
@@ -81,7 +80,7 @@ export const resources: Resource[] = [
     type: 'course',
     category: 'devops',
     tags: ['aws', 'cloud', 'certification'],
-    thumbnail: '/placeholder.svg'
+    thumbnail: 'https://images.unsplash.com/photo-1518770660439-4636190af475'
   },
   {
     id: '4',
@@ -91,7 +90,7 @@ export const resources: Resource[] = [
     type: 'playlist',
     category: 'cs-fundamentals',
     tags: ['algorithms', 'data structures', 'quick learning'],
-    thumbnail: '/placeholder.svg'
+    thumbnail: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d'
   },
   {
     id: '5',
@@ -112,7 +111,7 @@ export const resources: Resource[] = [
     type: 'video',
     category: 'mobile-development',
     tags: ['flutter', 'dart', 'mobile development'],
-    thumbnail: '/placeholder.svg'
+    thumbnail: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158'
   },
   {
     id: '7',
@@ -133,7 +132,7 @@ export const resources: Resource[] = [
     type: 'website',
     category: 'web-development',
     tags: ['web development', 'free courses', 'certification'],
-    thumbnail: '/placeholder.svg'
+    thumbnail: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6'
   },
   {
     id: '9',
@@ -143,7 +142,7 @@ export const resources: Resource[] = [
     type: 'video',
     category: 'devops',
     tags: ['docker', 'containers', 'devops'],
-    thumbnail: '/placeholder.svg'
+    thumbnail: 'https://images.unsplash.com/photo-1518770660439-4636190af475'
   },
   {
     id: '10',
@@ -164,7 +163,7 @@ export const resources: Resource[] = [
     type: 'video',
     category: 'devops',
     tags: ['git', 'github', 'version control'],
-    thumbnail: '/placeholder.svg'
+    thumbnail: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d'
   },
   {
     id: '12',
@@ -174,7 +173,7 @@ export const resources: Resource[] = [
     type: 'website',
     category: 'web-development',
     tags: ['php', 'laravel', 'web development'],
-    thumbnail: '/placeholder.svg'
+    thumbnail: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6'
   },
   {
     id: '13',
@@ -274,4 +273,3 @@ export const getFeaturedResources = () => resources.filter(resource => resource.
 
 export const getResourcesByCategory = (categoryId: string) => 
   resources.filter(resource => resource.category === categoryId);
-

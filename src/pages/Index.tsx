@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ArrowRight, Search, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -130,9 +129,9 @@ const Index = () => {
       <section id="about" className="py-20 bg-cyber-dark/50 backdrop-blur-sm">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 cyber-gradient-text">About Cyberia</h2>
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 cyber-gradient-text">About EduLinker</h2>
             <p className="text-cyber-slate text-lg mb-8 leading-relaxed">
-              Cyberia is a curated collection of free Computer Science resources from across the web.
+              EduLinker is a curated collection of free Computer Science resources from across the web.
               Our mission is to make quality CS education accessible to everyone by organizing the best
               free resources available online.
             </p>
