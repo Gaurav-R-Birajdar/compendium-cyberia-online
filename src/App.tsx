@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -7,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import CategoryResources from "./pages/CategoryResources";
 import NotFound from "./pages/NotFound";
+import FreeTools from "./pages/FreeTools";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +18,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/tools" element={<FreeTools />} />
           <Route path="/category/:categoryId" element={<CategoryResources />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -12,7 +12,7 @@ const Navbar = () => {
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
             <h1 className="text-2xl font-display font-bold mr-2 text-cyber-teal animate-glow">
-              EduLinker
+              Cyberia
             </h1>
             <span className="text-xs bg-cyber-teal/10 px-2 py-0.5 rounded text-cyber-teal border border-cyber-teal/20">
               CS Resources
@@ -24,7 +24,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center space-x-1">
           <Link to="/" className="nav-link">Home</Link>
           <Link to="/#categories" className="nav-link">Categories</Link>
-          <a href="https://roadmap.sh" target="_blank" rel="noopener noreferrer" className="nav-link">Free Tools</a>
+          <Link to="/tools" className="nav-link">Free Tools</Link>
           <div className="ml-4 relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-cyber-slate h-4 w-4" />
             <input 
@@ -54,7 +54,7 @@ const Navbar = () => {
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
             <Link to="/" className="nav-link block">Home</Link>
             <Link to="/#categories" className="nav-link block">Categories</Link>
-            <a href="https://roadmap.sh" target="_blank" rel="noopener noreferrer" className="nav-link block">Free Tools</a>
+            <Link to="/tools" className="nav-link block">Free Tools</Link>
             <div className="relative mt-2">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-cyber-slate h-4 w-4" />
               <input 
