@@ -2,6 +2,7 @@
 import React from 'react';
 import { ExternalLink, Play, BookOpen, Film, List, Globe, Wrench } from 'lucide-react';
 import { Resource } from '@/data/resources';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 interface ResourceCardProps {
   resource: Resource;
@@ -27,9 +28,19 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ resource }) => {
     }
   };
 
+  const defaultThumbnail = `/placeholder.svg`;
+  const thumbnailUrl = resource.thumbnail || defaultThumbnail;
+
   return (
     <div className="glass-card rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-cyber-teal/10 hover:-translate-y-1 group">
-      <div className="h-40 bg-gradient-to-br from-cyber-blue to-cyber-dark overflow-hidden relative">
+      <div className="relative h-40 bg-gradient-to-br from-cyber-blue to-cyber-dark overflow-hidden">
+        <AspectRatio ratio={16 / 9} className="w-full h-full">
+          <img
+            src={thumbnailUrl}
+            alt={resource.title}
+            className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+          />
+        </AspectRatio>
         <div className="absolute inset-0 bg-cyber-grid bg-cyber-grid-size opacity-40"></div>
         <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-cyber-dark/90 to-transparent">
           <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-cyber-dark/60 backdrop-blur-sm border border-white/10 text-cyber-slate">
@@ -38,8 +49,11 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ resource }) => {
           </span>
         </div>
       </div>
+      
       <div className="p-5">
-        <h3 className="text-lg font-display font-medium mb-2 text-white group-hover:text-cyber-teal transition-colors">{resource.title}</h3>
+        <h3 className="text-lg font-display font-medium mb-2 text-white group-hover:text-cyber-teal transition-colors">
+          {resource.title}
+        </h3>
         <p className="text-cyber-slate text-sm mb-4 line-clamp-2">{resource.description}</p>
         
         <div className="flex flex-wrap gap-2 mb-4">
