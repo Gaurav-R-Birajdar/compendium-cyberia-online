@@ -1,4 +1,3 @@
-import { Resource } from './resources';
 
 export interface Resource {
   id: string;
@@ -275,3 +274,4 @@ export const getFeaturedResources = () => resources.filter(resource => resource.
 
 export const getResourcesByCategory = (categoryId: string) => 
   resources.filter(resource => resource.category === categoryId);
+
