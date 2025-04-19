@@ -1,3 +1,5 @@
+import { Resource } from './resources';
+
 export interface Resource {
   id: string;
   title: string;
@@ -80,7 +82,7 @@ export const resources: Resource[] = [
     type: 'course',
     category: 'devops',
     tags: ['aws', 'cloud', 'certification'],
-    image: '/placeholder.svg'
+    thumbnail: '/placeholder.svg'
   },
   {
     id: '4',
@@ -90,7 +92,7 @@ export const resources: Resource[] = [
     type: 'playlist',
     category: 'cs-fundamentals',
     tags: ['algorithms', 'data structures', 'quick learning'],
-    image: '/placeholder.svg'
+    thumbnail: '/placeholder.svg'
   },
   {
     id: '5',
@@ -101,7 +103,7 @@ export const resources: Resource[] = [
     category: 'web-development',
     tags: ['react', 'javascript', 'web development'],
     featured: true,
-    image: '/placeholder.svg'
+    thumbnail: '/placeholder.svg'
   },
   {
     id: '6',
@@ -111,7 +113,7 @@ export const resources: Resource[] = [
     type: 'video',
     category: 'mobile-development',
     tags: ['flutter', 'dart', 'mobile development'],
-    image: '/placeholder.svg'
+    thumbnail: '/placeholder.svg'
   },
   {
     id: '7',
@@ -122,7 +124,7 @@ export const resources: Resource[] = [
     category: 'data-science',
     tags: ['machine learning', 'AI', 'data science'],
     featured: true,
-    image: '/placeholder.svg'
+    thumbnail: '/placeholder.svg'
   },
   {
     id: '8',
@@ -132,7 +134,7 @@ export const resources: Resource[] = [
     type: 'website',
     category: 'web-development',
     tags: ['web development', 'free courses', 'certification'],
-    image: '/placeholder.svg'
+    thumbnail: '/placeholder.svg'
   },
   {
     id: '9',
@@ -142,7 +144,7 @@ export const resources: Resource[] = [
     type: 'video',
     category: 'devops',
     tags: ['docker', 'containers', 'devops'],
-    image: '/placeholder.svg'
+    thumbnail: '/placeholder.svg'
   },
   {
     id: '10',
@@ -153,7 +155,7 @@ export const resources: Resource[] = [
     category: 'cs-fundamentals',
     tags: ['career', 'learning path', 'guide'],
     featured: true,
-    image: '/placeholder.svg'
+    thumbnail: '/placeholder.svg'
   },
   {
     id: '11',
@@ -163,7 +165,7 @@ export const resources: Resource[] = [
     type: 'video',
     category: 'devops',
     tags: ['git', 'github', 'version control'],
-    image: '/placeholder.svg'
+    thumbnail: '/placeholder.svg'
   },
   {
     id: '12',
@@ -173,7 +175,7 @@ export const resources: Resource[] = [
     type: 'website',
     category: 'web-development',
     tags: ['php', 'laravel', 'web development'],
-    image: '/placeholder.svg'
+    thumbnail: '/placeholder.svg'
   },
   {
     id: '13',
@@ -183,7 +185,7 @@ export const resources: Resource[] = [
     type: 'video',
     category: 'web-development',
     tags: ['html', 'css', 'web development', 'beginner'],
-    image: '/placeholder.svg'
+    thumbnail: '/placeholder.svg'
   },
   {
     id: '14',
@@ -193,7 +195,7 @@ export const resources: Resource[] = [
     type: 'video',
     category: 'web-development',
     tags: ['nodejs', 'express', 'backend'],
-    image: '/placeholder.svg'
+    thumbnail: '/placeholder.svg'
   },
   {
     id: '15',
@@ -203,7 +205,7 @@ export const resources: Resource[] = [
     type: 'video',
     category: 'web-development',
     tags: ['vue', 'javascript', 'frontend'],
-    image: '/placeholder.svg'
+    thumbnail: '/placeholder.svg'
   },
   {
     id: '16',
@@ -214,7 +216,7 @@ export const resources: Resource[] = [
     category: 'data-science',
     tags: ['python', 'data science', 'pandas', 'numpy'],
     featured: true,
-    image: '/placeholder.svg'
+    thumbnail: '/placeholder.svg'
   },
   {
     id: '17',
@@ -224,7 +226,7 @@ export const resources: Resource[] = [
     type: 'video',
     category: 'data-science',
     tags: ['tensorflow', 'deep learning', 'AI'],
-    image: '/placeholder.svg'
+    thumbnail: '/placeholder.svg'
   },
   {
     id: '18',
@@ -234,7 +236,7 @@ export const resources: Resource[] = [
     type: 'playlist',
     category: 'data-science',
     tags: ['python', 'data visualization', 'matplotlib'],
-    image: '/placeholder.svg'
+    thumbnail: '/placeholder.svg'
   },
   {
     id: '19',
@@ -245,7 +247,7 @@ export const resources: Resource[] = [
     category: 'programming-languages',
     tags: ['java', 'programming', 'OOP'],
     featured: true,
-    image: '/placeholder.svg'
+    thumbnail: '/placeholder.svg'
   },
   {
     id: '20',
@@ -255,7 +257,7 @@ export const resources: Resource[] = [
     type: 'video',
     category: 'programming-languages',
     tags: ['c++', 'programming', 'algorithms'],
-    image: '/placeholder.svg'
+    thumbnail: '/placeholder.svg'
   },
   {
     id: '21',
@@ -265,7 +267,7 @@ export const resources: Resource[] = [
     type: 'website',
     category: 'programming-languages',
     tags: ['rust', 'programming', 'systems'],
-    image: '/placeholder.svg'
+    thumbnail: '/placeholder.svg'
   }
 ];
 
