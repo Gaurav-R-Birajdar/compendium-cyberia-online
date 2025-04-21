@@ -32,7 +32,7 @@ export const certificationsByCategory: CategoryCerts = {
         "AWS Certified Solutions Architect – Professional",
         "AWS Certified DevOps Engineer – Professional"
       ],
-      badgeUrl: "https://d1.awsstatic.com/training-and-certification/Certification%20Badges/AWS-Certified-Cloud-Practitioner_512x512.png",
+      badgeUrl: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified_Cloud-Practitioner_512x512.1a76fa85d8f47b427e2929c8b9e900d573c002f6.png",
       tags: ["AWS", "Foundational"],
     },
     {
@@ -49,7 +49,7 @@ export const certificationsByCategory: CategoryCerts = {
         "AWS Certified Solutions Architect – Associate",
         "AWS Certified Solutions Architect – Professional"
       ],
-      badgeUrl: "https://d1.awsstatic.com/training-and-certification/Certification%20Badges/AWS-Certified-Solutions-Architect-Associate_512x512.png",
+      badgeUrl: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified_Solutions-Architect_Associate_512x512.891ca3ba4d449dbb18f0666bc8f37ceed6a518ca.png",
       tags: ["AWS", "Associate"],
     },
     {
@@ -66,7 +66,7 @@ export const certificationsByCategory: CategoryCerts = {
         "AWS Certified Solutions Architect – Associate",
         "AWS Certified Solutions Architect – Professional"
       ],
-      badgeUrl: "https://d1.awsstatic.com/training-and-certification/Certification%20Badges/AWS-Certified-Solutions-Architect-Professional_512x512.png",
+      badgeUrl: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified_Solutions-Architect_Professional_512x512.69fdd05dbe977e055cd4a8930d070583aa8aa4c7.png",
       tags: ["AWS", "Professional"],
     },
     {
@@ -82,7 +82,7 @@ export const certificationsByCategory: CategoryCerts = {
         "AWS Certified Cloud Practitioner",
         "AWS Certified DevOps Engineer – Professional"
       ],
-      badgeUrl: "https://d1.awsstatic.com/training-and-certification/Certification%20Badges/AWS-Certified-DevOps-Engineer-Professional_512x512.png",
+      badgeUrl: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified_DevOps-Engineer_Professional_512x512.53db4e4bcf335a75f062cc9f887fecf0b5efa93c.png",
       tags: ["AWS", "DevOps"],
     },
     {
@@ -99,7 +99,7 @@ export const certificationsByCategory: CategoryCerts = {
         "Azure Administrator Associate (AZ-104)",
         "Solutions Architect Expert (AZ-305)"
       ],
-      badgeUrl: "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg",
+      badgeUrl: "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg?branch=main",
       tags: ["Azure", "Foundational"],
     },
     {
@@ -116,7 +116,7 @@ export const certificationsByCategory: CategoryCerts = {
         "Azure Administrator Associate (AZ-104)",
         "Solutions Architect Expert (AZ-305)"
       ],
-      badgeUrl: "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg",
+      badgeUrl: "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg?branch=main",
       tags: ["Azure", "Associate"],
     },
     {
@@ -133,7 +133,7 @@ export const certificationsByCategory: CategoryCerts = {
         "Azure Administrator Associate (AZ-104)",
         "Solutions Architect Expert (AZ-305)"
       ],
-      badgeUrl: "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-expert-badge.svg",
+      badgeUrl: "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-expert-badge.svg?branch=main",
       tags: ["Azure", "Expert"],
     }
   ],
@@ -147,7 +147,7 @@ export const certificationsByCategory: CategoryCerts = {
       link: "https://www.cisco.com/c/en/us/training-events/training-certifications/certifications/associate/ccna.html",
       options: ["CCNA 200-301"],
       roadmap: ["CCNA (Associate Level)", "CCNP (Professional Level)", "CCIE (Expert Level)"],
-      badgeUrl: "https://images.credly.com/images/56ab34de-294b-4d90-b016-683e8a1c302e/ccna.png",
+      badgeUrl: "https://images.credly.com/size/340x340/images/a31c0301-ff96-4cee-9435-0a4b40ce6e66/cisco_ccna_R_26S.png",
       tags: ["Cisco", "Networking", "Associate"],
     },
     {
@@ -158,7 +158,7 @@ export const certificationsByCategory: CategoryCerts = {
       link: "https://www.comptia.org/certifications/network",
       options: ["N10-008"],
       roadmap: ["CompTIA IT Fundamentals", "CompTIA Network+", "CompTIA Security+"],
-      badgeUrl: "https://images.credly.com/images/aa41ad45-7883-4a08-8c87-d47bc0448fe3/networkce-certification-badge.png",
+      badgeUrl: "https://images.credly.com/size/340x340/images/e1fc05b2-959b-45a4-8d20-124b1df121fe/CompTIA_Network_2Bce.png",
       tags: ["CompTIA", "Networking", "Vendor Neutral"],
     }
   ],
@@ -176,7 +176,7 @@ export const certificationsByCategory: CategoryCerts = {
         "AWS Certified Developer – Associate",
         "AWS DevOps Engineer – Professional"
       ],
-      badgeUrl: "https://d1.awsstatic.com/training-and-certification/Certification%20Badges/AWS-Certified-DevOps-Engineer-Professional_512x512.png",
+      badgeUrl: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified_DevOps-Engineer_Professional_512x512.53db4e4bcf335a75f062cc9f887fecf0b5efa93c.png",
       tags: ["DevOps", "AWS", "Professional"],
     }
   ],
@@ -190,7 +190,7 @@ export const certificationsByCategory: CategoryCerts = {
       link: "https://learn.microsoft.com/en-us/certifications/power-bi-data-analyst-associate/",
       options: ["PL-300: Power BI Data Analyst"],
       roadmap: ["Azure Fundamentals", "Data Analyst Associate", "Data Scientist Associate"],
-      badgeUrl: "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg",
+      badgeUrl: "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg?branch=main",
       tags: ["Data Analysis", "Power BI", "Microsoft"],
     },
     {
@@ -200,7 +200,7 @@ export const certificationsByCategory: CategoryCerts = {
       description: "Engineering data processing systems on Google Cloud.",
       link: "https://cloud.google.com/certification/data-engineer",
       options: ["Professional Data Engineer"],
-      badgeUrl: "https://cloud.google.com/images/certification/badges/professional-data-engineer.svg",
+      badgeUrl: "https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/52142352",
       tags: ["Google Cloud", "Data Engineer"],
     }
   ],

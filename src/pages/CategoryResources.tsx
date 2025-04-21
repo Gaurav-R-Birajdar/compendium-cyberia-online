@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { getResourcesByCategory, categories } from '@/data/resources';
 import ResourceCard from '@/components/ResourceCard';
 import Navbar from '@/components/Navbar';
-// @ts-ignore
 import { certificationsByCategory } from '@/data/certifications';
 
 // Toggle Button UI from shadcn/ui, fallback to simple version for now
@@ -20,6 +19,11 @@ const CategoryResources = () => {
 
   // Get certifications for this category
   const certifications = certificationsByCategory[categoryId || ''] || [];
+
+  // Function to handle image loading errors
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = '/placeholder.svg'; // Fallback to placeholder image
+  };
 
   if (!category) {
     return (
@@ -101,7 +105,12 @@ const CategoryResources = () => {
                   )}
                 </div>
                 {cert.badgeUrl && (
-                  <img src={cert.badgeUrl} alt={cert.title + " badge"} className="w-20 h-20 object-contain my-2" />
+                  <img 
+                    src={cert.badgeUrl} 
+                    alt={cert.title + " badge"} 
+                    className="w-20 h-20 object-contain my-2"
+                    onError={handleImageError}
+                  />
                 )}
                 {cert.tags && (
                   <div className="flex flex-wrap gap-2 mb-2">
