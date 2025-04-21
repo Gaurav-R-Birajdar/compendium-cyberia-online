@@ -46,6 +46,30 @@ export const categories = [
     name: 'Mobile Development',
     icon: '📱',
     description: 'iOS, Android, and cross-platform mobile app development.'
+  },
+  {
+    id: 'blockchain',
+    name: 'Blockchain',
+    icon: '⛓️',
+    description: 'Distributed ledger technologies, cryptocurrencies, and smart contracts.'
+  },
+  {
+    id: 'cloud-computing',
+    name: 'Cloud Computing',
+    icon: '☁️',
+    description: 'Cloud platforms, architecture, and best practices for scalable applications.'
+  },
+  {
+    id: 'digital-forensics',
+    name: 'Digital Forensics',
+    icon: '🕵️‍♂️',
+    description: 'Cybersecurity, ethical hacking, and investigative digital forensics.'
+  },
+  {
+    id: 'networking',
+    name: 'Networking',
+    icon: '🌐',
+    description: 'Resources for computer networks, protocols, and communications.'
   }
 ];
 
@@ -101,7 +125,7 @@ export const resources: Resource[] = [
     category: 'web-development',
     tags: ['react', 'javascript', 'web development'],
     featured: true,
-    thumbnail: '/placeholder.svg'
+    thumbnail: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d'
   },
   {
     id: '6',
@@ -183,7 +207,7 @@ export const resources: Resource[] = [
     type: 'video',
     category: 'web-development',
     tags: ['html', 'css', 'web development', 'beginner'],
-    thumbnail: '/placeholder.svg'
+    thumbnail: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085'
   },
   {
     id: '14',
@@ -193,7 +217,7 @@ export const resources: Resource[] = [
     type: 'video',
     category: 'web-development',
     tags: ['nodejs', 'express', 'backend'],
-    thumbnail: '/placeholder.svg'
+    thumbnail: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7'
   },
   {
     id: '15',
@@ -203,7 +227,7 @@ export const resources: Resource[] = [
     type: 'video',
     category: 'web-development',
     tags: ['vue', 'javascript', 'frontend'],
-    thumbnail: '/placeholder.svg'
+    thumbnail: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d'
   },
   {
     id: '16',

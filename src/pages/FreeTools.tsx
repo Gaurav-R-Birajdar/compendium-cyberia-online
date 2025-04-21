@@ -21,6 +21,16 @@ const tools = [
     url: 'https://www.freecodecamp.org/',
   },
   {
+    name: 'freeCodeCamp YouTube',
+    description: 'Official freeCodeCamp YouTube channel. Hundreds of free tutorials and full courses.',
+    url: 'https://www.youtube.com/c/Freecodecamp',
+  },
+  {
+    name: 'AWS Educate',
+    description: 'Amazon\'s free cloud education platform and resources for students and educators.',
+    url: 'https://aws.amazon.com/education/awseducate/',
+  },
+  {
     name: 'The Odin Project',
     description: 'Your free and open source full stack curriculum. Learn web development for free.',
     url: 'https://www.theodinproject.com/',
