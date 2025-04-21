@@ -1,0 +1,58 @@
+
+import type { Resource } from './types';
+
+export const resourcesProgramming: Resource[] = [
+  {
+    id: '1',
+    title: 'JavaScript Crash Course',
+    description: 'Learn JavaScript in 1 hour with this fast-paced beginner-friendly tutorial.',
+    link: 'https://www.youtube.com/watch?v=W6NZfCO5SIk',
+    type: 'video',
+    category: 'programming-languages',
+    tags: ['javascript', 'web development', 'beginner'],
+    featured: true,
+    thumbnail: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6',
+  },
+  {
+    id: '2',
+    title: 'Python for Everybody',
+    description: 'Comprehensive Python programming course for beginners by Dr. Charles Severance.',
+    link: 'https://www.py4e.com/',
+    type: 'course',
+    category: 'programming-languages',
+    tags: ['python', 'beginner', 'programming'],
+    featured: true,
+    thumbnail: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b',
+  },
+  {
+    id: '19',
+    title: 'Java Programming Masterclass',
+    description: 'Comprehensive Java course covering core concepts, OOP, and advanced topics.',
+    link: 'https://www.youtube.com/watch?v=eIrMbAQSU34',
+    type: 'video',
+    category: 'programming-languages',
+    tags: ['java', 'programming', 'OOP'],
+    featured: true,
+    thumbnail: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6',
+  },
+  {
+    id: '20',
+    title: 'C++ Programming Tutorial',
+    description: 'Learn C++ programming from scratch - covers basic to advanced concepts.',
+    link: 'https://www.youtube.com/watch?v=vLnPwxZdW4Y',
+    type: 'video',
+    category: 'programming-languages',
+    tags: ['c++', 'programming', 'algorithms'],
+    thumbnail: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085',
+  },
+  {
+    id: '21',
+    title: 'Rust Programming Language Book',
+    description: 'Official Rust programming language book - comprehensive guide for beginners.',
+    link: 'https://doc.rust-lang.org/book/',
+    type: 'website',
+    category: 'programming-languages',
+    tags: ['rust', 'programming', 'systems'],
+    thumbnail: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7',
+  },
+];

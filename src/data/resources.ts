@@ -1,11 +1,15 @@
 
-export { Resource } from './types';
+// Fixed type re-export to use `export type`
+// Also simplified imports and exports, adapting to the new smaller resource files setup.
+
+export type { Resource } from './types';
 export { categories } from './categories';
-export { resources } from './resourcesList';
 
-import { resources } from './resourcesList';
+import { resourcesMain } from './resourcesListMain';
 
-export const getFeaturedResources = () => resources.filter(resource => resource.featured);
+export const getFeaturedResources = () => resourcesMain.filter(resource => resource.featured);
 
 export const getResourcesByCategory = (categoryId: string) =>
-  resources.filter(resource => resource.category === categoryId);
+  resourcesMain.filter(resource => resource.category === categoryId);
+
+export { resourcesMain };
