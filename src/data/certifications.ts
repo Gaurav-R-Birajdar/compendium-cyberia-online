@@ -139,6 +139,17 @@ export const certificationsByCategory: CategoryCerts = {
       level: "Specialty"
     },
     {
+      id: "aws-machine-learning-specialty",
+      title: "AWS Certified Machine Learning – Specialty",
+      provider: "Amazon Web Services",
+      description: "Validates expertise in designing, implementing, and maintaining machine learning solutions on AWS.",
+      link: "https://aws.amazon.com/certification/certified-machine-learning-specialty/",
+      options: ["Specialty (MLS-C01)"],
+      badgeUrl: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Machine-Learning-Specialty_badge.e5d66b60af4e74c5ad50ab6c09b32695d2cc0cf5.png",
+      tags: ["AWS", "Machine Learning", "Specialty"],
+      level: "Specialty"
+    },
+    {
       id: "azure-fundamentals",
       title: "Microsoft Certified: Azure Fundamentals",
       provider: "Microsoft Azure",

@@ -1,3 +1,4 @@
+
 import React, { useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Award } from 'lucide-react';
@@ -33,7 +34,7 @@ const CategoryResources = () => {
   const groupedAwsCertifications = React.useMemo(() => {
     if (categoryId !== 'cloud-computing') return null;
     
-    const awsCerts = filteredCertifications.filter(cert => 
+    const awsCerts = certifications.filter(cert => 
       cert.provider === 'Amazon Web Services'
     );
     
@@ -43,7 +44,7 @@ const CategoryResources = () => {
       professional: awsCerts.filter(cert => cert.level === 'Professional'),
       specialty: awsCerts.filter(cert => cert.level === 'Specialty'),
     };
-  }, [categoryId, filteredCertifications]);
+  }, [categoryId, certifications]);
 
   // Certification section rendering helper
   const renderCertificationGroup = (title: string, certs: typeof filteredCertifications) => {
@@ -199,12 +200,12 @@ const CategoryResources = () => {
           <div className="space-y-8">
             {certView === "available" ? (
               <>
-                {categoryId === 'cloud-computing' && cloudProvider === 'aws' && groupedAwsCertifications ? (
+                {categoryId === 'cloud-computing' && cloudProvider === 'aws' ? (
                   <>
-                    {renderCertificationGroup("Foundational Level", groupedAwsCertifications.foundational)}
-                    {renderCertificationGroup("Associate Level", groupedAwsCertifications.associate)}
-                    {renderCertificationGroup("Professional Level", groupedAwsCertifications.professional)}
-                    {renderCertificationGroup("Specialty Level", groupedAwsCertifications.specialty)}
+                    {renderCertificationGroup("Foundational Level", groupedAwsCertifications?.foundational || [])}
+                    {renderCertificationGroup("Associate Level", groupedAwsCertifications?.associate || [])}
+                    {renderCertificationGroup("Professional Level", groupedAwsCertifications?.professional || [])}
+                    {renderCertificationGroup("Specialty Level", groupedAwsCertifications?.specialty || [])}
                     
                     <div className="mt-12 pt-8 border-t border-cyber-teal/20">
                       <h3 className="text-xl font-bold text-white mb-4">Official AWS Certification Resources</h3>
