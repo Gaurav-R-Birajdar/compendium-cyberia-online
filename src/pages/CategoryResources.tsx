@@ -14,7 +14,7 @@ const CategoryResources = () => {
   const { categoryId } = useParams<{ categoryId: string }>();
   const [viewMode, setViewMode] = useState<"courses" | "certifications">("courses");
   const [certView, setCertView] = useState<"available" | "roadmaps">("available");
-  const [cloudProvider, setCloudProvider] = useState<"all" | "aws" | "azure" | "google">("all");
+  const [cloudProvider, setCloudProvider] = useState<"aws" | "azure" | "google">("aws");
   
   const resources = getResourcesByCategory(categoryId || '');
   const category = categories.find(cat => cat.id === categoryId);
@@ -26,7 +26,7 @@ const CategoryResources = () => {
     : resources;
 
   // Filter certifications by provider if we're in cloud-computing
-  const filteredCertifications = categoryId === 'cloud-computing' && cloudProvider !== 'all'
+  const filteredCertifications = categoryId === 'cloud-computing'
     ? certifications.filter(cert => cert.provider.toLowerCase().includes(cloudProvider))
     : certifications;
 
@@ -144,9 +144,8 @@ const CategoryResources = () => {
           <p className="text-cyber-slate text-lg mb-6">{category.description}</p>
 
           {categoryId === 'cloud-computing' && (
-            <Tabs defaultValue="all" className="mb-6">
+            <Tabs defaultValue="aws" className="mb-6">
               <TabsList>
-                <TabsTrigger value="all" onClick={() => setCloudProvider("all")}>All Providers</TabsTrigger>
                 <TabsTrigger value="aws" onClick={() => setCloudProvider("aws")}>AWS</TabsTrigger>
                 <TabsTrigger value="azure" onClick={() => setCloudProvider("azure")}>Azure</TabsTrigger>
                 <TabsTrigger value="google" onClick={() => setCloudProvider("google")}>Google Cloud</TabsTrigger>
@@ -302,44 +301,7 @@ const CategoryResources = () => {
                         </div>
                       </>
                     ) : (
-                      // For "all" providers or non-cloud categories
-                      <>
-                        {renderCertificationGroup("Available Certifications", filteredCertifications)}
-                        {categoryId === 'cloud-computing' && (
-                          <div className="mt-12 pt-8 border-t border-cyber-teal/20">
-                            <h3 className="text-xl font-bold text-white mb-4">Official Cloud Certification Resources</h3>
-                            <div className="grid gap-4">
-                              <a 
-                                href="https://aws.amazon.com/certification/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-cyber-teal hover:text-cyber-teal/80 transition-colors flex items-center gap-2"
-                              >
-                                AWS Certifications
-                                <ArrowLeft className="h-4 w-4" />
-                              </a>
-                              <a 
-                                href="https://learn.microsoft.com/en-us/certifications/azure/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-cyber-teal hover:text-cyber-teal/80 transition-colors flex items-center gap-2"
-                              >
-                                Azure Certifications
-                                <ArrowLeft className="h-4 w-4" />
-                              </a>
-                              <a 
-                                href="https://cloud.google.com/certification"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-cyber-teal hover:text-cyber-teal/80 transition-colors flex items-center gap-2"
-                              >
-                                Google Cloud Certifications
-                                <ArrowLeft className="h-4 w-4" />
-                              </a>
-                            </div>
-                          </div>
-                        )}
-                      </>
+                      <></>
                     )}
                   </div>
                 )}
@@ -350,7 +312,7 @@ const CategoryResources = () => {
                 
                 {categoryId === 'cloud-computing' && (
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    {cloudProvider === 'aws' || cloudProvider === 'all' ? (
+                    {cloudProvider === 'aws' && (
                       <div className="glass-card p-6 rounded-lg">
                         <h4 className="text-lg font-bold text-white mb-4">AWS Certification Path</h4>
                         <div className="space-y-4">
@@ -380,9 +342,9 @@ const CategoryResources = () => {
                           </div>
                         </div>
                       </div>
-                    ) : null}
+                    )}
 
-                    {cloudProvider === 'azure' || cloudProvider === 'all' ? (
+                    {cloudProvider === 'azure' && (
                       <div className="glass-card p-6 rounded-lg">
                         <h4 className="text-lg font-bold text-white mb-4">Azure Certification Path</h4>
                         <div className="space-y-4">
@@ -403,9 +365,9 @@ const CategoryResources = () => {
                           </div>
                         </div>
                       </div>
-                    ) : null}
+                    )}
 
-                    {cloudProvider === 'google' || cloudProvider === 'all' ? (
+                    {cloudProvider === 'google' && (
                       <div className="glass-card p-6 rounded-lg">
                         <h4 className="text-lg font-bold text-white mb-4">Google Cloud Path</h4>
                         <div className="space-y-4">
@@ -431,7 +393,7 @@ const CategoryResources = () => {
                           </div>
                         </div>
                       </div>
-                    ) : null}
+                    )}
                   </div>
                 )}
 
