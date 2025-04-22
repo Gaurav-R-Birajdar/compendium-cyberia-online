@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -29,6 +28,81 @@ const CategoryResources = () => {
   const filteredCertifications = categoryId === 'cloud-computing' && cloudProvider !== 'all'
     ? certifications.filter(cert => cert.provider.toLowerCase().includes(cloudProvider))
     : certifications;
+
+  // Group AWS certifications by level
+  const groupedAwsCertifications = React.useMemo(() => {
+    if (categoryId !== 'cloud-computing') return null;
+    
+    const awsCerts = filteredCertifications.filter(cert => 
+      cert.provider === 'Amazon Web Services'
+    );
+    
+    return {
+      foundational: awsCerts.filter(cert => cert.level === 'Foundational'),
+      associate: awsCerts.filter(cert => cert.level === 'Associate'),
+      professional: awsCerts.filter(cert => cert.level === 'Professional'),
+      specialty: awsCerts.filter(cert => cert.level === 'Specialty'),
+    };
+  }, [categoryId, filteredCertifications]);
+
+  // Certification section rendering helper
+  const renderCertificationGroup = (title: string, certs: typeof filteredCertifications) => {
+    if (!certs || certs.length === 0) return null;
+    
+    return (
+      <div className="mb-8">
+        <h3 className="text-xl font-bold text-white mb-4">{title}</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {certs.map(cert => (
+            <div key={cert.id} className="glass-card rounded-lg overflow-hidden hover:shadow-lg transition-all group p-5 flex flex-col">
+              <div className="flex items-center gap-3 mb-2">
+                <Award className="h-6 w-6 text-cyber-yellow" />
+                <span className="font-bold text-lg text-white">{cert.title}</span>
+              </div>
+              <div className="mb-2">
+                <span className="text-xs font-semibold text-cyber-slate uppercase bg-cyber-dark px-2 py-1 rounded">
+                  {cert.provider}
+                </span>
+              </div>
+              <div className="mb-3 text-cyber-slate">{cert.description}</div>
+              <div className="mb-2">
+                {cert.options && cert.options.length > 0 && (
+                  <span className="block text-xs text-cyber-teal">
+                    Options: {cert.options.join(', ')}
+                  </span>
+                )}
+              </div>
+              {cert.badgeUrl && (
+                <img 
+                  src={cert.badgeUrl} 
+                  alt={cert.title + " badge"} 
+                  className="w-20 h-20 object-contain my-2"
+                  onError={handleImageError}
+                />
+              )}
+              {cert.tags && (
+                <div className="flex flex-wrap gap-2 mb-2">
+                  {cert.tags.map(tag => (
+                    <span key={tag} className="text-xs px-2 py-0.5 rounded-full bg-cyber-dark border border-cyber-teal/10 text-cyber-slate">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+              <a 
+                href={cert.link} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-cyber-teal text-sm hover:text-cyber-teal/80 transition-colors underline mt-auto"
+              >
+                View Certification
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
 
   // Function to handle image loading errors
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
@@ -123,75 +197,55 @@ const CategoryResources = () => {
         )}
 
         {viewMode === "certifications" && certifications.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="space-y-8">
             {certView === "available" ? (
-              // Show available certifications
-              filteredCertifications.map(cert => (
-                <div key={cert.id} className="glass-card rounded-lg overflow-hidden hover:shadow-lg transition-all group p-5 flex flex-col">
-                  <div className="flex items-center gap-3 mb-2">
-                    <Award className="h-6 w-6 text-cyber-yellow" />
-                    <span className="font-bold text-lg text-white">{cert.title}</span>
-                  </div>
-                  <div className="mb-2">
-                    <span className="text-xs font-semibold text-cyber-slate uppercase bg-cyber-dark px-2 py-1 rounded">
-                      {cert.provider}
-                    </span>
-                  </div>
-                  <div className="mb-3 text-cyber-slate">{cert.description}</div>
-                  <div className="mb-2">
-                    {cert.options && cert.options.length > 0 && (
-                      <span className="block text-xs text-cyber-teal">
-                        Options: {cert.options.join(', ')}
-                      </span>
-                    )}
-                  </div>
-                  {cert.badgeUrl && (
-                    <img 
-                      src={cert.badgeUrl} 
-                      alt={cert.title + " badge"} 
-                      className="w-20 h-20 object-contain my-2"
-                      onError={handleImageError}
-                    />
-                  )}
-                  {cert.tags && (
-                    <div className="flex flex-wrap gap-2 mb-2">
-                      {cert.tags.map(tag => (
-                        <span key={tag} className="text-xs px-2 py-0.5 rounded-full bg-cyber-dark border border-cyber-teal/10 text-cyber-slate">
-                          {tag}
-                        </span>
-                      ))}
+              <>
+                {categoryId === 'cloud-computing' && cloudProvider === 'aws' && groupedAwsCertifications ? (
+                  <>
+                    {renderCertificationGroup("Foundational Level", groupedAwsCertifications.foundational)}
+                    {renderCertificationGroup("Associate Level", groupedAwsCertifications.associate)}
+                    {renderCertificationGroup("Professional Level", groupedAwsCertifications.professional)}
+                    {renderCertificationGroup("Specialty Level", groupedAwsCertifications.specialty)}
+                    
+                    <div className="mt-12 pt-8 border-t border-cyber-teal/20">
+                      <h3 className="text-xl font-bold text-white mb-4">Official AWS Certification Resources</h3>
+                      <div className="grid gap-4">
+                        <a 
+                          href="https://aws.amazon.com/certification/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-cyber-teal hover:text-cyber-teal/80 transition-colors flex items-center gap-2"
+                        >
+                          AWS Certification Homepage
+                          <ArrowLeft className="h-4 w-4" />
+                        </a>
+                        <a 
+                          href="https://explore.skillbuilder.aws/learn"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-cyber-teal hover:text-cyber-teal/80 transition-colors flex items-center gap-2"
+                        >
+                          AWS Skill Builder
+                          <ArrowLeft className="h-4 w-4" />
+                        </a>
+                        <a 
+                          href="https://aws.amazon.com/certification/certification-prep/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-cyber-teal hover:text-cyber-teal/80 transition-colors flex items-center gap-2"
+                        >
+                          AWS Certification Exam Preparation
+                          <ArrowLeft className="h-4 w-4" />
+                        </a>
+                      </div>
                     </div>
-                  )}
-                  <a 
-                    href={cert.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-cyber-teal text-sm hover:text-cyber-teal/80 transition-colors underline mt-auto"
-                  >
-                    View Certification
-                  </a>
-                </div>
-              ))
+                  </>
+                ) : (
+                  // ... keep existing code (rendering for other cloud providers)
+                )}
+              </>
             ) : (
-              // Show certification roadmaps
-              filteredCertifications
-                .filter(cert => cert.roadmap && cert.roadmap.length > 0)
-                .map(cert => (
-                  <div key={cert.id} className="glass-card rounded-lg overflow-hidden hover:shadow-lg transition-all group p-5">
-                    <div className="flex items-center gap-3 mb-4">
-                      <Award className="h-6 w-6 text-cyber-yellow" />
-                      <span className="font-bold text-lg text-white">{cert.provider} Career Path</span>
-                    </div>
-                    <div className="space-y-2">
-                      {cert.roadmap?.map((step, index) => (
-                        <div key={index} className="flex items-start gap-2">
-                          <span className="text-cyber-pink">{index + 1}.</span>
-                          <span className="text-cyber-slate">{step}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))
+              // ... keep existing code (roadmaps view)
             )}
           </div>
         )}

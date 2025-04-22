@@ -1,4 +1,3 @@
-
 export interface Certification {
   id: string;
   title: string;
@@ -9,6 +8,7 @@ export interface Certification {
   roadmap?: string[]; // Ordered path for certifications
   badgeUrl?: string;
   tags?: string[];
+  level?: string;
 }
 
 interface CategoryCerts {
@@ -21,69 +21,105 @@ export const certificationsByCategory: CategoryCerts = {
       id: "aws-cloud-practitioner",
       title: "AWS Certified Cloud Practitioner",
       provider: "Amazon Web Services",
-      description: "Entry-level AWS foundational certification for cloud basics.",
+      description: "Entry-level certification covering AWS Cloud concepts, security, technology, and billing/pricing.",
       link: "https://aws.amazon.com/certification/certified-cloud-practitioner/",
-      options: [
-        "Foundational (CLF-C02)"
-      ],
+      options: ["Foundational (CLF-C02)"],
       roadmap: [
         "AWS Certified Cloud Practitioner",
-        "AWS Certified Solutions Architect – Associate",
-        "AWS Certified Solutions Architect – Professional",
-        "AWS Certified DevOps Engineer – Professional"
+        "AWS Solutions Architect Associate or Developer Associate",
+        "AWS Solutions Architect Professional"
       ],
-      badgeUrl: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified_Cloud-Practitioner_512x512.1a76fa85d8f47b427e2929c8b9e900d573c002f6.png",
+      badgeUrl: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Cloud-Practitioner_badge.634f8a21af2e0e956ed8905a72366146ba22b74c.png",
       tags: ["AWS", "Foundational"],
+      level: "Foundational"
+    },
+    {
+      id: "aws-ai-practitioner",
+      title: "AWS Certified AI Practitioner",
+      provider: "Amazon Web Services",
+      description: "Entry-level certification for AI/ML fundamentals on AWS.",
+      link: "https://aws.amazon.com/certification/ai-practitioner/",
+      options: ["Foundational (AIP-C01)"],
+      badgeUrl: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-AI-Practitioner_badge.e0ba67a5112e5e91a48a7f1672018683aa3dcb4f.png",
+      tags: ["AWS", "AI", "ML", "Foundational"],
+      level: "Foundational"
+    },
+    {
+      id: "aws-sysops-admin-associate",
+      title: "AWS Certified SysOps Administrator – Associate",
+      provider: "Amazon Web Services",
+      description: "Validates technical expertise in deployment, management, and operations on AWS.",
+      link: "https://aws.amazon.com/certification/certified-sysops-admin-associate/",
+      options: ["Associate (SOA-C02)"],
+      badgeUrl: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-SysOps-Administrator-Associate_badge.c3586b02748654fb588633314dd66a1d6841893b.png",
+      tags: ["AWS", "SysOps", "Associate"],
+      level: "Associate"
+    },
+    {
+      id: "aws-developer-associate",
+      title: "AWS Certified Developer – Associate",
+      provider: "Amazon Web Services",
+      description: "Demonstrates knowledge of core AWS services, uses, and basic AWS architecture best practices.",
+      link: "https://aws.amazon.com/certification/certified-developer-associate/",
+      options: ["Associate (DVA-C02)"],
+      badgeUrl: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Developer-Associate_badge.5c083fa855fe82c1cf2d0c8b883c265ec72a17c0.png",
+      tags: ["AWS", "Developer", "Associate"],
+      level: "Associate"
     },
     {
       id: "aws-solutions-architect-associate",
       title: "AWS Certified Solutions Architect – Associate",
       provider: "Amazon Web Services",
-      description: "Design distributed systems on AWS. Skill level: Associate.",
+      description: "Validates ability to design and implement distributed systems on AWS.",
       link: "https://aws.amazon.com/certification/certified-solutions-architect-associate/",
-      options: [
-        "Associate Level (SAA-C03)"
-      ],
-      roadmap: [
-        "AWS Certified Cloud Practitioner",
-        "AWS Certified Solutions Architect – Associate",
-        "AWS Certified Solutions Architect – Professional"
-      ],
-      badgeUrl: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified_Solutions-Architect_Associate_512x512.891ca3ba4d449dbb18f0666bc8f37ceed6a518ca.png",
-      tags: ["AWS", "Associate"],
+      options: ["Associate (SAA-C03)"],
+      badgeUrl: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Solutions-Architect-Associate_badge.3419559c682629072f1eb968d59dea0741772c0f.png",
+      tags: ["AWS", "Architecture", "Associate"],
+      level: "Associate"
+    },
+    {
+      id: "aws-data-engineer-associate",
+      title: "AWS Certified Data Engineer – Associate",
+      provider: "Amazon Web Services",
+      description: "Validates expertise in data engineering and analytics on AWS.",
+      link: "https://aws.amazon.com/certification/certified-data-engineer-associate/",
+      options: ["Associate (DAS-C01)"],
+      badgeUrl: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Data-Engineer-Associate_badge.a1d24cb26463d57a979ef86ad1567bd68e186f26.png",
+      tags: ["AWS", "Data", "Associate"],
+      level: "Associate"
+    },
+    {
+      id: "aws-machine-learning-specialty",
+      title: "AWS Certified Machine Learning – Specialty",
+      provider: "Amazon Web Services",
+      description: "Validates expertise in ML/AI solutions on AWS.",
+      link: "https://aws.amazon.com/certification/certified-machine-learning-specialty/",
+      options: ["Specialty (MLS-C01)"],
+      badgeUrl: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Machine-Learning-Specialty_badge.e5d66b60af4e74c5ad50ab6c09b32695d2cc0cf5.png",
+      tags: ["AWS", "Machine Learning", "Specialty"],
+      level: "Specialty"
     },
     {
       id: "aws-solutions-architect-pro",
       title: "AWS Certified Solutions Architect – Professional",
       provider: "Amazon Web Services",
-      description: "Advanced skill certification for designing cloud architectures on AWS.",
+      description: "Advanced certification for designing distributed applications and systems on AWS.",
       link: "https://aws.amazon.com/certification/certified-solutions-architect-professional/",
-      options: [
-        "Professional Level (SAP-C02)"
-      ],
-      roadmap: [
-        "AWS Certified Cloud Practitioner",
-        "AWS Certified Solutions Architect – Associate",
-        "AWS Certified Solutions Architect – Professional"
-      ],
-      badgeUrl: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified_Solutions-Architect_Professional_512x512.69fdd05dbe977e055cd4a8930d070583aa8aa4c7.png",
-      tags: ["AWS", "Professional"],
+      options: ["Professional (SAP-C02)"],
+      badgeUrl: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Solutions-Architect-Professional_badge.d1905866b10ccb7f47790ee0a4d97042a6e3ee49.png",
+      tags: ["AWS", "Architecture", "Professional"],
+      level: "Professional"
     },
     {
       id: "aws-devops-engineer-pro",
       title: "AWS Certified DevOps Engineer – Professional",
       provider: "Amazon Web Services",
-      description: "Professional certification for DevOps roles (automation, CI/CD, ops on AWS).",
+      description: "Advanced certification for implementing continuous delivery systems and automation on AWS.",
       link: "https://aws.amazon.com/certification/certified-devops-engineer-professional/",
-      options: [
-        "Professional Level (DOP-C02)"
-      ],
-      roadmap: [
-        "AWS Certified Cloud Practitioner",
-        "AWS Certified DevOps Engineer – Professional"
-      ],
-      badgeUrl: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified_DevOps-Engineer_Professional_512x512.53db4e4bcf335a75f062cc9f887fecf0b5efa93c.png",
-      tags: ["AWS", "DevOps"],
+      options: ["Professional (DOP-C02)"],
+      badgeUrl: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-DevOps-Engineer-Professional_badge.d5407d292fd9daec190835ca4b1b90ace4468f92.png",
+      tags: ["AWS", "DevOps", "Professional"],
+      level: "Professional"
     },
     {
       id: "azure-fundamentals",
