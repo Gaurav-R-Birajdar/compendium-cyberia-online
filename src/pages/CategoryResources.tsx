@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Award } from 'lucide-react';
@@ -21,7 +20,7 @@ const CategoryResources = () => {
   const certifications = certificationsByCategory[categoryId || ''] || [];
 
   // Filter resources by cloud provider if we're in the cloud-computing category
-  const filteredResources = categoryId === 'cloud-computing' && cloudProvider !== 'all'
+  const filteredResources = categoryId === 'cloud-computing'
     ? resources.filter(resource => resource.tags.includes(cloudProvider))
     : resources;
 
