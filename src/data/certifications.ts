@@ -24,11 +24,6 @@ export const certificationsByCategory: CategoryCerts = {
       description: "Entry-level certification covering AWS Cloud concepts, security, technology, and billing/pricing.",
       link: "https://aws.amazon.com/certification/certified-cloud-practitioner/",
       options: ["Foundational (CLF-C02)"],
-      roadmap: [
-        "AWS Certified Cloud Practitioner",
-        "AWS Solutions Architect Associate or Developer Associate",
-        "AWS Solutions Architect Professional"
-      ],
       badgeUrl: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Cloud-Practitioner_badge.634f8a21af2e0e956ed8905a72366146ba22b74c.png",
       tags: ["AWS", "Foundational"],
       level: "Foundational"
@@ -89,15 +84,15 @@ export const certificationsByCategory: CategoryCerts = {
       level: "Associate"
     },
     {
-      id: "aws-machine-learning-specialty",
-      title: "AWS Certified Machine Learning – Specialty",
+      id: "aws-machine-learning-associate",
+      title: "AWS Certified Machine Learning Engineer – Associate",
       provider: "Amazon Web Services",
-      description: "Validates expertise in ML/AI solutions on AWS.",
+      description: "Validates expertise in developing machine learning solutions on AWS.",
       link: "https://aws.amazon.com/certification/certified-machine-learning-specialty/",
-      options: ["Specialty (MLS-C01)"],
+      options: ["Associate (MLE-C01)"],
       badgeUrl: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Machine-Learning-Specialty_badge.e5d66b60af4e74c5ad50ab6c09b32695d2cc0cf5.png",
-      tags: ["AWS", "Machine Learning", "Specialty"],
-      level: "Specialty"
+      tags: ["AWS", "Machine Learning", "Associate"],
+      level: "Associate"
     },
     {
       id: "aws-solutions-architect-pro",
@@ -120,6 +115,28 @@ export const certificationsByCategory: CategoryCerts = {
       badgeUrl: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-DevOps-Engineer-Professional_badge.d5407d292fd9daec190835ca4b1b90ace4468f92.png",
       tags: ["AWS", "DevOps", "Professional"],
       level: "Professional"
+    },
+    {
+      id: "aws-advanced-networking-specialty",
+      title: "AWS Certified Advanced Networking – Specialty",
+      provider: "Amazon Web Services",
+      description: "Validates expertise in designing and maintaining network architecture for AWS cloud services.",
+      link: "https://aws.amazon.com/certification/certified-advanced-networking-specialty/",
+      options: ["Specialty (ANS-C01)"],
+      badgeUrl: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Advanced-Networking-Specialty_badge.bd89ce77d6654d9c56635ea683c9ec4fe1bce871.png",
+      tags: ["AWS", "Networking", "Specialty"],
+      level: "Specialty"
+    },
+    {
+      id: "aws-security-specialty",
+      title: "AWS Certified Security – Specialty",
+      provider: "Amazon Web Services",
+      description: "Validates expertise in security and compliance on AWS.",
+      link: "https://aws.amazon.com/certification/certified-security-specialty/",
+      options: ["Specialty (SCS-C01)"],
+      badgeUrl: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Security-Specialty_badge.b45f0774ecb2d5a557df13dd405e8cd28f16d91c.png",
+      tags: ["AWS", "Security", "Specialty"],
+      level: "Specialty"
     },
     {
       id: "azure-fundamentals",
