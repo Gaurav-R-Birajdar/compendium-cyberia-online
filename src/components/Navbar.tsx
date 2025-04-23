@@ -1,10 +1,37 @@
+
 import React, { useState } from 'react';
 import { Menu, X, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { resourcesMain } from '@/data/resources';
 
-const Navbar = () => {
+interface NavbarProps {
+  onSearch?: (query: string) => void;
+}
+
+const Navbar = ({ onSearch }: NavbarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
+
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+    if (onSearch) {
+      onSearch(query);
+    }
+    
+    // Filter resources based on search query
+    const filteredResources = resourcesMain.filter(resource => 
+      resource.title.toLowerCase().includes(query.toLowerCase()) ||
+      resource.description?.toLowerCase().includes(query.toLowerCase()) ||
+      resource.tags?.some(tag => tag.toLowerCase().includes(query.toLowerCase()))
+    );
+
+    // If search query is not empty and we have results, navigate to first matching resource's category
+    if (query && filteredResources.length > 0) {
+      navigate(`/category/${filteredResources[0].category}`);
+    }
+  };
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-cyber-blue/80 backdrop-blur-md border-b border-cyber-teal/20 py-3">
@@ -30,6 +57,8 @@ const Navbar = () => {
             <input 
               type="text" 
               placeholder="Search resources..." 
+              value={searchQuery}
+              onChange={(e) => handleSearch(e.target.value)}
               className="pl-10 pr-4 py-2 rounded-full text-sm bg-cyber-dark border border-cyber-teal/20 focus:border-cyber-teal focus:outline-none"
             />
           </div>
@@ -60,6 +89,8 @@ const Navbar = () => {
               <input 
                 type="text" 
                 placeholder="Search resources..." 
+                value={searchQuery}
+                onChange={(e) => handleSearch(e.target.value)}
                 className="w-full pl-10 pr-4 py-2 rounded-full text-sm bg-cyber-dark border border-cyber-teal/20 focus:border-cyber-teal focus:outline-none"
               />
             </div>

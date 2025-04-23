@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ArrowRight, Search, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -7,15 +6,20 @@ import CategorySection from '@/components/CategorySection';
 import FeaturedResources from '@/components/FeaturedResources';
 import ResourceCard from '@/components/ResourceCard';
 import Footer from '@/components/Footer';
-import { getResourcesByCategory, categories } from '@/data/resources';
+import { getResourcesByCategory, categories, resourcesMain } from '@/data/resources';
 
 const Index = () => {
   const [activeCategory, setActiveCategory] = useState(categories[0].id);
+  const [searchQuery, setSearchQuery] = useState('');
   const categoryResources = getResourcesByCategory(activeCategory);
+
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+  };
 
   return (
     <div className="min-h-screen bg-cyber-blue">
-      <Navbar />
+      <Navbar onSearch={handleSearch} />
       
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
@@ -41,6 +45,8 @@ const Index = () => {
                   type="text" 
                   placeholder="Search for a topic..." 
                   className="pl-10 pr-4 py-2 rounded-md w-full sm:w-64 bg-cyber-dark border border-cyber-teal/20 focus:border-cyber-teal focus:outline-none"
+                  value={searchQuery}
+                  onChange={(e) => handleSearch(e.target.value)}
                 />
               </div>
             </div>
@@ -53,30 +59,6 @@ const Index = () => {
                 <span className="text-sm mb-2">Scroll to browse</span>
                 <ChevronDown className="h-5 w-5 animate-bounce" />
               </a>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Stats */}
-      <section className="py-12 bg-cyber-dark/70 backdrop-blur-sm">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="text-center">
-              <p className="text-3xl md:text-4xl font-display font-bold text-cyber-teal">100+</p>
-              <p className="text-cyber-slate text-sm">Video Tutorials</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl md:text-4xl font-display font-bold text-cyber-purple">50+</p>
-              <p className="text-cyber-slate text-sm">Free Courses</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl md:text-4xl font-display font-bold text-cyber-pink">30+</p>
-              <p className="text-cyber-slate text-sm">Learning Paths</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl md:text-4xl font-display font-bold text-white">6</p>
-              <p className="text-cyber-slate text-sm">Subject Categories</p>
             </div>
           </div>
         </div>
