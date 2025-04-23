@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, Search, ChevronDown } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Navbar from '@/components/Navbar';
 import CategorySection from '@/components/CategorySection';
@@ -10,16 +10,11 @@ import { getResourcesByCategory, categories, resourcesMain } from '@/data/resour
 
 const Index = () => {
   const [activeCategory, setActiveCategory] = useState(categories[0].id);
-  const [searchQuery, setSearchQuery] = useState('');
   const categoryResources = getResourcesByCategory(activeCategory);
-
-  const handleSearch = (query: string) => {
-    setSearchQuery(query);
-  };
 
   return (
     <div className="min-h-screen bg-cyber-blue">
-      <Navbar onSearch={handleSearch} />
+      <Navbar />
       
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
@@ -38,17 +33,6 @@ const Index = () => {
                 Explore Resources
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-cyber-slate h-4 w-4" />
-                <input 
-                  type="text" 
-                  placeholder="Search for a topic..." 
-                  className="pl-10 pr-4 py-2 rounded-md w-full sm:w-64 bg-cyber-dark border border-cyber-teal/20 focus:border-cyber-teal focus:outline-none"
-                  value={searchQuery}
-                  onChange={(e) => handleSearch(e.target.value)}
-                />
-              </div>
             </div>
             
             <div className="flex justify-center">
@@ -108,7 +92,7 @@ const Index = () => {
         </div>
       </section>
       
-      {/* About */}
+      {/* About Section */}
       <section id="about" className="py-20 bg-cyber-dark/50 backdrop-blur-sm">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
@@ -125,7 +109,7 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Newsletter */}
+      {/* Newsletter Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto glass-card rounded-lg p-8 border border-cyber-teal/20">

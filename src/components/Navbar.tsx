@@ -14,22 +14,24 @@ const Navbar = ({ onSearch }: NavbarProps) => {
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
 
-  const handleSearch = (query: string) => {
-    setSearchQuery(query);
-    if (onSearch) {
-      onSearch(query);
-    }
-    
-    // Filter resources based on search query
-    const filteredResources = resourcesMain.filter(resource => 
-      resource.title.toLowerCase().includes(query.toLowerCase()) ||
-      resource.description?.toLowerCase().includes(query.toLowerCase()) ||
-      resource.tags?.some(tag => tag.toLowerCase().includes(query.toLowerCase()))
-    );
+  const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter' && searchQuery.trim()) {
+      if (onSearch) {
+        onSearch(searchQuery);
+      }
+      
+      // Filter resources based on search query
+      const filteredResources = resourcesMain.filter(resource => 
+        resource.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        resource.description?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        resource.tags?.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
+      );
 
-    // If search query is not empty and we have results, navigate to first matching resource's category
-    if (query && filteredResources.length > 0) {
-      navigate(`/category/${filteredResources[0].category}`);
+      // If we have results, navigate to first matching resource's category
+      if (filteredResources.length > 0) {
+        navigate(`/category/${filteredResources[0].category}`);
+        setSearchQuery(''); // Clear search after navigation
+      }
     }
   };
 
@@ -58,7 +60,8 @@ const Navbar = ({ onSearch }: NavbarProps) => {
               type="text" 
               placeholder="Search resources..." 
               value={searchQuery}
-              onChange={(e) => handleSearch(e.target.value)}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyDown={handleSearch}
               className="pl-10 pr-4 py-2 rounded-full text-sm bg-cyber-dark border border-cyber-teal/20 focus:border-cyber-teal focus:outline-none"
             />
           </div>
@@ -90,7 +93,8 @@ const Navbar = ({ onSearch }: NavbarProps) => {
                 type="text" 
                 placeholder="Search resources..." 
                 value={searchQuery}
-                onChange={(e) => handleSearch(e.target.value)}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={handleSearch}
                 className="w-full pl-10 pr-4 py-2 rounded-full text-sm bg-cyber-dark border border-cyber-teal/20 focus:border-cyber-teal focus:outline-none"
               />
             </div>
