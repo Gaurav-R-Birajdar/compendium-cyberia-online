@@ -1,4 +1,3 @@
-
 import type { Resource } from './types';
 
 export const resourcesDevOps: Resource[] = [
@@ -32,4 +31,34 @@ export const resourcesDevOps: Resource[] = [
     tags: ['git', 'github', 'version control'],
     thumbnail: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d',
   },
+  {
+    id: '52',
+    title: 'DevOps Roadmap',
+    description: 'Comprehensive DevOps learning path and roadmap.',
+    link: 'https://roadmap.sh/devops',
+    type: 'website',
+    category: 'devops',
+    tags: ['devops', 'roadmap', 'learning path'],
+    thumbnail: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6'
+  },
+  {
+    id: '53',
+    title: 'Docker Documentation',
+    description: 'Official Docker documentation and tutorials.',
+    link: 'https://docs.docker.com/',
+    type: 'website',
+    category: 'devops',
+    tags: ['docker', 'containers', 'devops'],
+    thumbnail: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6'
+  },
+  {
+    id: '54',
+    title: 'Kubernetes Basics',
+    description: 'Learn Kubernetes fundamentals and container orchestration.',
+    link: 'https://kubernetes.io/docs/tutorials/kubernetes-basics/',
+    type: 'course',
+    category: 'devops',
+    tags: ['kubernetes', 'containers', 'orchestration'],
+    thumbnail: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6'
+  }
 ];

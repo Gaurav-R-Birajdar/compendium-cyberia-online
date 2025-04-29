@@ -1,4 +1,3 @@
-
 import type { Resource } from './types';
 
 export const resourcesBlockchain: Resource[] = [
@@ -12,4 +11,34 @@ export const resourcesBlockchain: Resource[] = [
     tags: ['blockchain', 'crypto', 'distributed ledger'],
     thumbnail: 'https://images.unsplash.com/photo-1470813740244-df37b8c1edcb'
   },
+  {
+    id: '34',
+    title: 'Ethereum Developer Course',
+    description: 'Learn to build decentralized applications on Ethereum.',
+    link: 'https://ethereum.org/en/developers/learning-tools/',
+    type: 'course',
+    category: 'blockchain',
+    tags: ['ethereum', 'smart contracts', 'dapps'],
+    thumbnail: 'https://images.unsplash.com/photo-1518546305927-5a555bb7020d'
+  },
+  {
+    id: '35',
+    title: 'Solidity Documentation',
+    description: 'Official documentation for the Solidity programming language.',
+    link: 'https://docs.soliditylang.org/',
+    type: 'website',
+    category: 'blockchain',
+    tags: ['solidity', 'smart contracts', 'programming'],
+    thumbnail: 'https://images.unsplash.com/photo-1518546305927-5a555bb7020d'
+  },
+  {
+    id: '36',
+    title: 'Blockchain Security Course',
+    description: 'Learn about blockchain security, vulnerabilities, and best practices.',
+    link: 'https://www.udemy.com/course/blockchain-security/',
+    type: 'course',
+    category: 'blockchain',
+    tags: ['security', 'blockchain', 'cryptography'],
+    thumbnail: 'https://images.unsplash.com/photo-1470813740244-df37b8c1edcb'
+  }
 ];

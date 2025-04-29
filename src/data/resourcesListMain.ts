@@ -13,6 +13,9 @@ import { resourcesCloudComputing } from './resourcesListCloudComputing';
 import { resourcesDigitalForensics } from './resourcesListDigitalForensics';
 import { resourcesNetworking } from './resourcesListNetworking';
 import { resourcesHindi } from './resourcesListHindi';
+import { resourcesGameDev } from './resourcesListGameDev';
+import { resourcesAI } from './resourcesListAI';
+import { resourcesCloud } from './resourcesListCloud';
 
 export const resourcesMain: Resource[] = [
   ...resourcesProgramming,
@@ -27,4 +30,7 @@ export const resourcesMain: Resource[] = [
   ...resourcesDigitalForensics,
   ...resourcesNetworking,
   ...resourcesHindi,
+  ...resourcesGameDev,
+  ...resourcesAI,
+  ...resourcesCloud,
 ];
