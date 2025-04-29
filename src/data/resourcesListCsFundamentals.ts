@@ -1,4 +1,3 @@
-
 import type { Resource } from './types';
 
 export const resourcesCsFundamentals: Resource[] = [
@@ -20,7 +19,6 @@ export const resourcesCsFundamentals: Resource[] = [
     type: 'website',
     category: 'cs-fundamentals',
     tags: ['career', 'learning path', 'guide'],
-    featured: true,
     thumbnail: '/placeholder.svg',
   },
 ];

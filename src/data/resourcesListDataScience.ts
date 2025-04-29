@@ -1,4 +1,3 @@
-
 import type { Resource } from './types';
 
 export const resourcesDataScience: Resource[] = [
@@ -10,7 +9,6 @@ export const resourcesDataScience: Resource[] = [
     type: 'course',
     category: 'data-science',
     tags: ['machine learning', 'AI', 'data science'],
-    featured: true,
     thumbnail: '/placeholder.svg',
   },
   {
@@ -21,7 +19,6 @@ export const resourcesDataScience: Resource[] = [
     type: 'website',
     category: 'data-science',
     tags: ['python', 'data science', 'pandas', 'numpy'],
-    featured: true,
     thumbnail: '/placeholder.svg',
   },
   {
