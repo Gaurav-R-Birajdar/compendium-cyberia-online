@@ -4,9 +4,9 @@ export const resourcesAI: Resource[] = [
   {
     id: '46',
     title: 'Deep Learning Specialization',
-    description: 'Comprehensive deep learning course by Andrew Ng.',
-    link: 'https://www.coursera.org/specializations/deep-learning',
-    type: 'course',
+    description: 'Free deep learning course by Andrew Ng on YouTube.',
+    link: 'https://www.youtube.com/playlist?list=PLkDaE6sCZn6Ec-XTbcX1uRg2_u4xOEky0',
+    type: 'playlist',
     category: 'ai',
     tags: ['deep learning', 'neural networks', 'machine learning'],
     thumbnail: 'https://images.unsplash.com/photo-1677442136019-21780ecad995'

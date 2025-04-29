@@ -14,9 +14,9 @@ export const resourcesDigitalForensics: Resource[] = [
   {
     id: '37',
     title: 'Digital Forensics with Kali Linux',
-    description: 'Learn digital forensics using Kali Linux tools and techniques.',
-    link: 'https://www.udemy.com/course/computer-forensics-fundamentals/',
-    type: 'course',
+    description: 'Free YouTube course on digital forensics using Kali Linux.',
+    link: 'https://www.youtube.com/playlist?list=PLBf0hzazHTGOEuhPQSnq-Ej8jRyXxfYvl',
+    type: 'playlist',
     category: 'digital-forensics',
     tags: ['kali linux', 'forensics', 'tools'],
     thumbnail: 'https://images.unsplash.com/photo-1501854140801-50d01698950b'
@@ -34,7 +34,7 @@ export const resourcesDigitalForensics: Resource[] = [
   {
     id: '39',
     title: 'Network Forensics Guide',
-    description: 'Comprehensive guide to network forensics and analysis.',
+    description: 'Free SANS white paper on network forensics and analysis.',
     link: 'https://www.sans.org/white-papers/network-forensics/',
     type: 'website',
     category: 'digital-forensics',

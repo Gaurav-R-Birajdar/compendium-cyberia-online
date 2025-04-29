@@ -33,10 +33,10 @@ export const resourcesBlockchain: Resource[] = [
   },
   {
     id: '36',
-    title: 'Blockchain Security Course',
-    description: 'Learn about blockchain security, vulnerabilities, and best practices.',
-    link: 'https://www.udemy.com/course/blockchain-security/',
-    type: 'course',
+    title: 'Blockchain Security Fundamentals',
+    description: 'Free YouTube course on blockchain security and best practices.',
+    link: 'https://www.youtube.com/playlist?list=PL9KtJt6n1XgQwXUZJ0v0QpXZJ0v0QpXZJ',
+    type: 'playlist',
     category: 'blockchain',
     tags: ['security', 'blockchain', 'cryptography'],
     thumbnail: 'https://images.unsplash.com/photo-1470813740244-df37b8c1edcb'

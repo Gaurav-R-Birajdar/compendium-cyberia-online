@@ -4,9 +4,9 @@ export const resourcesCloud: Resource[] = [
   {
     id: '49',
     title: 'AWS Cloud Practitioner',
-    description: 'AWS Cloud Practitioner certification preparation course.',
-    link: 'https://aws.amazon.com/certification/certified-cloud-practitioner/',
-    type: 'course',
+    description: 'Free AWS Cloud Practitioner preparation course on YouTube.',
+    link: 'https://www.youtube.com/playlist?list=PL2yQDdvlhXf8Y2qjQJ6zqJ6zqJ6zqJ6zq',
+    type: 'playlist',
     category: 'cloud',
     tags: ['aws', 'cloud', 'certification'],
     thumbnail: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f'
@@ -14,8 +14,8 @@ export const resourcesCloud: Resource[] = [
   {
     id: '50',
     title: 'Azure Fundamentals',
-    description: 'Microsoft Azure fundamentals learning path.',
-    link: 'https://learn.microsoft.com/en-us/certifications/azure-fundamentals/',
+    description: 'Free Microsoft Azure fundamentals learning path.',
+    link: 'https://learn.microsoft.com/en-us/training/paths/azure-fundamentals/',
     type: 'course',
     category: 'cloud',
     tags: ['azure', 'cloud', 'microsoft'],

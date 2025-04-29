@@ -54,9 +54,9 @@ export const resourcesDevOps: Resource[] = [
   {
     id: '54',
     title: 'Kubernetes Basics',
-    description: 'Learn Kubernetes fundamentals and container orchestration.',
-    link: 'https://kubernetes.io/docs/tutorials/kubernetes-basics/',
-    type: 'course',
+    description: 'Free Kubernetes fundamentals course on YouTube.',
+    link: 'https://www.youtube.com/playlist?list=PLy7NrYWoggjwPggqtFsI_zMAwvG0SqYCb',
+    type: 'playlist',
     category: 'devops',
     tags: ['kubernetes', 'containers', 'orchestration'],
     thumbnail: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6'

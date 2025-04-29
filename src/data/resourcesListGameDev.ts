@@ -23,10 +23,10 @@ export const resourcesGameDev: Resource[] = [
   },
   {
     id: '45',
-    title: 'Game Design Fundamentals',
-    description: 'Learn the fundamentals of game design and development.',
-    link: 'https://www.coursera.org/specializations/game-design',
-    type: 'course',
+    title: 'Game Development Fundamentals',
+    description: 'Free YouTube course on game development basics and theory.',
+    link: 'https://www.youtube.com/playlist?list=PLPV2KyIb3jR53Jce9hP7G5xC4O9AgnOuL',
+    type: 'playlist',
     category: 'game-dev',
     tags: ['game design', 'fundamentals', 'theory'],
     thumbnail: 'https://images.unsplash.com/photo-1511512578047-dfb367046420'
