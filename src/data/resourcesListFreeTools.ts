@@ -1,4 +1,3 @@
-
 import type { Resource } from './types';
 
 export const resourcesFreeTools: Resource[] = [
@@ -22,4 +21,14 @@ export const resourcesFreeTools: Resource[] = [
     tags: ['freecodecamp', 'youtube', 'education'],
     thumbnail: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6',
   },
+  {
+    id: '24',
+    title: 'Exam Pro',
+    description: 'Comprehensive certification roadmaps and study guides for various IT certifications.',
+    link: 'https://www.exampro.co/',
+    type: 'website',
+    category: 'devops',
+    tags: ['certifications', 'roadmaps', 'study guides'],
+    thumbnail: 'https://images.unsplash.com/photo-1518770660439-4636190af475',
+  }
 ];

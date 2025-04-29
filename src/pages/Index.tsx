@@ -7,6 +7,7 @@ import FeaturedResources from '@/components/FeaturedResources';
 import ResourceCard from '@/components/ResourceCard';
 import Footer from '@/components/Footer';
 import { getResourcesByCategory, categories, resourcesMain } from '@/data/resources';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
   const [activeCategory, setActiveCategory] = useState(categories[0].id);
@@ -27,13 +28,6 @@ const Index = () => {
             <p className="text-cyber-slate text-lg md:text-xl mb-8 leading-relaxed">
               Discover free resources to master programming, web development, data science, and more. All curated in one place.
             </p>
-            
-            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
-              <Button className="bg-gradient-to-r from-cyber-purple to-cyber-pink hover:opacity-90 transition-opacity text-white">
-                Explore Resources
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </div>
             
             <div className="flex justify-center">
               <a 

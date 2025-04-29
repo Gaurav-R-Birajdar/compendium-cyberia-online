@@ -155,16 +155,32 @@ export const certificationsByCategory: CategoryCerts = {
       provider: "Microsoft Azure",
       description: "Entry-level certification for understanding Microsoft Azure basics.",
       link: "https://learn.microsoft.com/en-us/certifications/azure-fundamentals/",
-      options: [
-        "AZ-900: Microsoft Azure Fundamentals"
-      ],
-      roadmap: [
-        "Azure Fundamentals (AZ-900)",
-        "Azure Administrator Associate (AZ-104)",
-        "Solutions Architect Expert (AZ-305)"
-      ],
+      options: ["AZ-900: Microsoft Azure Fundamentals"],
       badgeUrl: "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg?branch=main",
       tags: ["Azure", "Foundational"],
+      level: "Foundational"
+    },
+    {
+      id: "azure-ai-fundamentals",
+      title: "Microsoft Certified: Azure AI Fundamentals",
+      provider: "Microsoft Azure",
+      description: "Fundamental knowledge of machine learning and AI concepts and related Microsoft Azure services.",
+      link: "https://learn.microsoft.com/en-us/certifications/azure-ai-fundamentals/",
+      options: ["AI-900: Microsoft Azure AI Fundamentals"],
+      badgeUrl: "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg?branch=main",
+      tags: ["Azure", "AI", "Foundational"],
+      level: "Foundational"
+    },
+    {
+      id: "azure-data-fundamentals",
+      title: "Microsoft Certified: Azure Data Fundamentals",
+      provider: "Microsoft Azure",
+      description: "Fundamental knowledge of core data concepts and how they are implemented using Microsoft Azure data services.",
+      link: "https://learn.microsoft.com/en-us/certifications/azure-data-fundamentals/",
+      options: ["DP-900: Microsoft Azure Data Fundamentals"],
+      badgeUrl: "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg?branch=main",
+      tags: ["Azure", "Data", "Foundational"],
+      level: "Foundational"
     },
     {
       id: "azure-administrator-associate",
@@ -172,16 +188,32 @@ export const certificationsByCategory: CategoryCerts = {
       provider: "Microsoft Azure",
       description: "Administer Azure resources, virtual networks, compute, and storage.",
       link: "https://learn.microsoft.com/en-us/certifications/azure-administrator/",
-      options: [
-        "AZ-104: Microsoft Azure Administrator"
-      ],
-      roadmap: [
-        "Azure Fundamentals (AZ-900)",
-        "Azure Administrator Associate (AZ-104)",
-        "Solutions Architect Expert (AZ-305)"
-      ],
+      options: ["AZ-104: Microsoft Azure Administrator"],
       badgeUrl: "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg?branch=main",
-      tags: ["Azure", "Associate"],
+      tags: ["Azure", "Administration", "Associate"],
+      level: "Associate"
+    },
+    {
+      id: "azure-developer-associate",
+      title: "Microsoft Certified: Azure Developer Associate",
+      provider: "Microsoft Azure",
+      description: "Design, build, test, and maintain cloud applications and services on Microsoft Azure.",
+      link: "https://learn.microsoft.com/en-us/certifications/azure-developer/",
+      options: ["AZ-204: Developing Solutions for Microsoft Azure"],
+      badgeUrl: "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg?branch=main",
+      tags: ["Azure", "Development", "Associate"],
+      level: "Associate"
+    },
+    {
+      id: "azure-database-administrator-associate",
+      title: "Microsoft Certified: Azure Database Administrator Associate",
+      provider: "Microsoft Azure",
+      description: "Implement and manage the operational aspects of cloud-native and hybrid data platform solutions built on Microsoft Azure Data Services and Microsoft SQL Server.",
+      link: "https://learn.microsoft.com/en-us/certifications/azure-database-administrator-associate/",
+      options: ["DP-300: Administering Microsoft Azure SQL Solutions"],
+      badgeUrl: "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg?branch=main",
+      tags: ["Azure", "Database", "Associate"],
+      level: "Associate"
     },
     {
       id: "azure-solutions-architect-expert",
@@ -189,16 +221,98 @@ export const certificationsByCategory: CategoryCerts = {
       provider: "Microsoft Azure",
       description: "Advanced Azure architecture & infrastructure role certification.",
       link: "https://learn.microsoft.com/en-us/certifications/azure-solutions-architect/",
-      options: [
-        "AZ-305: Designing Microsoft Azure Infrastructure Solutions"
-      ],
-      roadmap: [
-        "Azure Fundamentals (AZ-900)",
-        "Azure Administrator Associate (AZ-104)",
-        "Solutions Architect Expert (AZ-305)"
-      ],
+      options: ["AZ-305: Designing Microsoft Azure Infrastructure Solutions"],
       badgeUrl: "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-expert-badge.svg?branch=main",
-      tags: ["Azure", "Expert"],
+      tags: ["Azure", "Architecture", "Expert"],
+      level: "Expert"
+    },
+    {
+      id: "azure-devops-engineer-expert",
+      title: "Microsoft Certified: Azure DevOps Engineer Expert",
+      provider: "Microsoft Azure",
+      description: "Combine people, process, and technologies to continuously deliver valuable products and services that meet end user needs and business objectives.",
+      link: "https://learn.microsoft.com/en-us/certifications/azure-devops-engineer/",
+      options: ["AZ-400: Microsoft Azure DevOps Solutions"],
+      badgeUrl: "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-expert-badge.svg?branch=main",
+      tags: ["Azure", "DevOps", "Expert"],
+      level: "Expert"
+    },
+    {
+      id: "azure-security-engineer-associate",
+      title: "Microsoft Certified: Azure Security Engineer Associate",
+      provider: "Microsoft Azure",
+      description: "Implement security controls and threat protection, manage identity and access, and protect data, applications, and networks in cloud and hybrid environments as part of end-to-end infrastructure.",
+      link: "https://learn.microsoft.com/en-us/certifications/azure-security-engineer/",
+      options: ["AZ-500: Microsoft Azure Security Technologies"],
+      badgeUrl: "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg?branch=main",
+      tags: ["Azure", "Security", "Associate"],
+      level: "Associate"
+    },
+    {
+      id: "azure-data-scientist-associate",
+      title: "Microsoft Certified: Azure Data Scientist Associate",
+      provider: "Microsoft Azure",
+      description: "Apply Azure's machine learning techniques to train, evaluate, and deploy models that solve business problems.",
+      link: "https://learn.microsoft.com/en-us/certifications/azure-data-scientist/",
+      options: ["DP-100: Designing and Implementing a Data Science Solution on Azure"],
+      badgeUrl: "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg?branch=main",
+      tags: ["Azure", "Data Science", "Associate"],
+      level: "Associate"
+    },
+    {
+      id: "azure-data-engineer-associate",
+      title: "Microsoft Certified: Azure Data Engineer Associate",
+      provider: "Microsoft Azure",
+      description: "Design and implement the management, monitoring, security, and privacy of data using the full stack of Azure data services.",
+      link: "https://learn.microsoft.com/en-us/certifications/azure-data-engineer/",
+      options: ["DP-203: Data Engineering on Microsoft Azure"],
+      badgeUrl: "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg?branch=main",
+      tags: ["Azure", "Data Engineering", "Associate"],
+      level: "Associate"
+    },
+    {
+      id: "gcp-digital-leader",
+      title: "Google Cloud Digital Leader",
+      provider: "Google Cloud",
+      description: "Entry-level certification for understanding Google Cloud basics and digital transformation.",
+      link: "https://cloud.google.com/certification/cloud-digital-leader",
+      options: ["Cloud Digital Leader"],
+      badgeUrl: "https://cloud.google.com/images/certification/badges/cloud-digital-leader.svg",
+      tags: ["GCP", "Foundational"],
+      level: "Foundational"
+    },
+    {
+      id: "gcp-associate-cloud-engineer",
+      title: "Google Cloud Associate Cloud Engineer",
+      provider: "Google Cloud",
+      description: "Deploy applications, monitor operations, and maintain cloud solutions on Google Cloud.",
+      link: "https://cloud.google.com/certification/cloud-engineer",
+      options: ["Associate Cloud Engineer"],
+      badgeUrl: "https://cloud.google.com/images/certification/badges/associate-cloud-engineer.svg",
+      tags: ["GCP", "Associate"],
+      level: "Associate"
+    },
+    {
+      id: "gcp-professional-cloud-architect",
+      title: "Google Cloud Professional Cloud Architect",
+      provider: "Google Cloud",
+      description: "Design, develop, and manage robust, secure, scalable, highly available, and dynamic solutions to drive business objectives.",
+      link: "https://cloud.google.com/certification/cloud-architect",
+      options: ["Professional Cloud Architect"],
+      badgeUrl: "https://cloud.google.com/images/certification/badges/professional-cloud-architect.svg",
+      tags: ["GCP", "Architecture", "Expert"],
+      level: "Expert"
+    },
+    {
+      id: "gcp-professional-security-engineer",
+      title: "Google Cloud Professional Security Engineer",
+      provider: "Google Cloud",
+      description: "Configure and implement security controls, manage identity and access management, and protect data and infrastructure on Google Cloud.",
+      link: "https://cloud.google.com/certification/security-engineer",
+      options: ["Professional Security Engineer"],
+      badgeUrl: "https://cloud.google.com/images/certification/badges/professional-security-engineer.svg",
+      tags: ["GCP", "Security", "Expert"],
+      level: "Expert"
     }
   ],
 

@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Award } from 'lucide-react';
@@ -13,7 +12,6 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 const CategoryResources = () => {
   const { categoryId } = useParams<{ categoryId: string }>();
   const [viewMode, setViewMode] = useState<"courses" | "certifications">("courses");
-  const [certView, setCertView] = useState<"available" | "roadmaps">("available");
   const [cloudProvider, setCloudProvider] = useState<"aws" | "azure" | "google">("aws");
   
   const resources = getResourcesByCategory(categoryId || '');
@@ -43,6 +41,36 @@ const CategoryResources = () => {
       associate: awsCerts.filter(cert => cert.level === 'Associate'),
       professional: awsCerts.filter(cert => cert.level === 'Professional'),
       specialty: awsCerts.filter(cert => cert.level === 'Specialty'),
+    };
+  }, [categoryId, certifications]);
+
+  // Group Azure certifications by level
+  const groupedAzureCertifications = React.useMemo(() => {
+    if (categoryId !== 'cloud-computing') return null;
+    
+    const azureCerts = certifications.filter(cert => 
+      cert.provider === 'Microsoft Azure'
+    );
+    
+    return {
+      foundational: azureCerts.filter(cert => cert.level === 'Foundational'),
+      associate: azureCerts.filter(cert => cert.level === 'Associate'),
+      expert: azureCerts.filter(cert => cert.level === 'Expert'),
+    };
+  }, [categoryId, certifications]);
+
+  // Group GCP certifications by level
+  const groupedGcpCertifications = React.useMemo(() => {
+    if (categoryId !== 'cloud-computing') return null;
+    
+    const gcpCerts = certifications.filter(cert => 
+      cert.provider === 'Google Cloud'
+    );
+    
+    return {
+      foundational: gcpCerts.filter(cert => cert.level === 'Foundational'),
+      associate: gcpCerts.filter(cert => cert.level === 'Associate'),
+      expert: gcpCerts.filter(cert => cert.level === 'Expert'),
     };
   }, [categoryId, certifications]);
 
@@ -168,27 +196,11 @@ const CategoryResources = () => {
                   <Award className="inline mr-1 h-4 w-4" /> Global Certifications
                 </ToggleGroupItem>
               </ToggleGroup>
-
-              {viewMode === "certifications" && (
-                <ToggleGroup
-                  type="single"
-                  value={certView}
-                  onValueChange={(val: string) => setCertView((val as "available"|"roadmaps") || "available")}
-                  className="flex gap-2"
-                >
-                  <ToggleGroupItem value="available" variant={certView==='available' ? "outline":undefined} size="default">
-                    Available Certifications
-                  </ToggleGroupItem>
-                  <ToggleGroupItem value="roadmaps" variant={certView==='roadmaps' ? "outline":undefined} size="default">
-                    Certification Roadmaps
-                  </ToggleGroupItem>
-                </ToggleGroup>
-              )}
             </div>
           )}
         </div>
 
-        {(viewMode === "courses" || certifications.length === 0) && (
+        {viewMode === "courses" && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredResources.map((resource) => (
               <ResourceCard key={resource.id} resource={resource} />
@@ -198,226 +210,109 @@ const CategoryResources = () => {
 
         {viewMode === "certifications" && certifications.length > 0 && (
           <div className="space-y-8">
-            {certView === "available" ? (
+            {categoryId === 'cloud-computing' && cloudProvider === 'aws' ? (
               <>
-                {categoryId === 'cloud-computing' && cloudProvider === 'aws' ? (
-                  <>
-                    {renderCertificationGroup("Foundational Level", groupedAwsCertifications?.foundational || [])}
-                    {renderCertificationGroup("Associate Level", groupedAwsCertifications?.associate || [])}
-                    {renderCertificationGroup("Professional Level", groupedAwsCertifications?.professional || [])}
-                    {renderCertificationGroup("Specialty Level", groupedAwsCertifications?.specialty || [])}
-                    
-                    <div className="mt-12 pt-8 border-t border-cyber-teal/20">
-                      <h3 className="text-xl font-bold text-white mb-4">Official AWS Certification Resources</h3>
-                      <div className="grid gap-4">
-                        <a 
-                          href="https://aws.amazon.com/certification/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-cyber-teal hover:text-cyber-teal/80 transition-colors flex items-center gap-2"
-                        >
-                          AWS Certification Homepage
-                          <ArrowLeft className="h-4 w-4" />
-                        </a>
-                        <a 
-                          href="https://explore.skillbuilder.aws/learn"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-cyber-teal hover:text-cyber-teal/80 transition-colors flex items-center gap-2"
-                        >
-                          AWS Skill Builder
-                          <ArrowLeft className="h-4 w-4" />
-                        </a>
-                        <a 
-                          href="https://aws.amazon.com/certification/certification-prep/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-cyber-teal hover:text-cyber-teal/80 transition-colors flex items-center gap-2"
-                        >
-                          AWS Certification Exam Preparation
-                          <ArrowLeft className="h-4 w-4" />
-                        </a>
-                      </div>
-                    </div>
-                  </>
-                ) : (
-                  <div>
-                    {categoryId === 'cloud-computing' && cloudProvider === 'azure' ? (
-                      <>
-                        {renderCertificationGroup("Azure Certifications", filteredCertifications.filter(cert =>
-                          cert.provider === 'Microsoft Azure'
-                        ))}
-                        <div className="mt-12 pt-8 border-t border-cyber-teal/20">
-                          <h3 className="text-xl font-bold text-white mb-4">Official Azure Certification Resources</h3>
-                          <div className="grid gap-4">
-                            <a 
-                              href="https://learn.microsoft.com/en-us/certifications/"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-cyber-teal hover:text-cyber-teal/80 transition-colors flex items-center gap-2"
-                            >
-                              Microsoft Learn Certifications
-                              <ArrowLeft className="h-4 w-4" />
-                            </a>
-                            <a 
-                              href="https://learn.microsoft.com/en-us/certifications/azure/"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-cyber-teal hover:text-cyber-teal/80 transition-colors flex items-center gap-2"
-                            >
-                              Azure Certifications
-                              <ArrowLeft className="h-4 w-4" />
-                            </a>
-                          </div>
-                        </div>
-                      </>
-                    ) : categoryId === 'cloud-computing' && cloudProvider === 'google' ? (
-                      <>
-                        {renderCertificationGroup("Google Cloud Certifications", filteredCertifications.filter(cert =>
-                          cert.provider === 'Google Cloud'
-                        ))}
-                        <div className="mt-12 pt-8 border-t border-cyber-teal/20">
-                          <h3 className="text-xl font-bold text-white mb-4">Official Google Cloud Certification Resources</h3>
-                          <div className="grid gap-4">
-                            <a 
-                              href="https://cloud.google.com/certification"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-cyber-teal hover:text-cyber-teal/80 transition-colors flex items-center gap-2"
-                            >
-                              Google Cloud Certifications
-                              <ArrowLeft className="h-4 w-4" />
-                            </a>
-                            <a 
-                              href="https://www.cloudskillsboost.google/"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-cyber-teal hover:text-cyber-teal/80 transition-colors flex items-center gap-2"
-                            >
-                              Google Cloud Skills Boost
-                              <ArrowLeft className="h-4 w-4" />
-                            </a>
-                          </div>
-                        </div>
-                      </>
-                    ) : (
-                      <></>
-                    )}
+                {renderCertificationGroup("Foundational Level", groupedAwsCertifications?.foundational || [])}
+                {renderCertificationGroup("Associate Level", groupedAwsCertifications?.associate || [])}
+                {renderCertificationGroup("Professional Level", groupedAwsCertifications?.professional || [])}
+                {renderCertificationGroup("Specialty Level", groupedAwsCertifications?.specialty || [])}
+                
+                <div className="mt-12 pt-8 border-t border-cyber-teal/20">
+                  <h3 className="text-xl font-bold text-white mb-4">Official AWS Certification Resources</h3>
+                  <div className="grid gap-4">
+                    <a 
+                      href="https://aws.amazon.com/certification/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-cyber-teal hover:text-cyber-teal/80 transition-colors flex items-center gap-2"
+                    >
+                      AWS Certification Homepage
+                      <ArrowLeft className="h-4 w-4" />
+                    </a>
+                    <a 
+                      href="https://explore.skillbuilder.aws/learn"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-cyber-teal hover:text-cyber-teal/80 transition-colors flex items-center gap-2"
+                    >
+                      AWS Skill Builder
+                      <ArrowLeft className="h-4 w-4" />
+                    </a>
+                    <a 
+                      href="https://aws.amazon.com/certification/certification-prep/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-cyber-teal hover:text-cyber-teal/80 transition-colors flex items-center gap-2"
+                    >
+                      AWS Certification Exam Preparation
+                      <ArrowLeft className="h-4 w-4" />
+                    </a>
                   </div>
-                )}
+                </div>
+              </>
+            ) : categoryId === 'cloud-computing' && cloudProvider === 'azure' ? (
+              <>
+                {renderCertificationGroup("Foundational Level", groupedAzureCertifications?.foundational || [])}
+                {renderCertificationGroup("Associate Level", groupedAzureCertifications?.associate || [])}
+                {renderCertificationGroup("Expert Level", groupedAzureCertifications?.expert || [])}
+                
+                <div className="mt-12 pt-8 border-t border-cyber-teal/20">
+                  <h3 className="text-xl font-bold text-white mb-4">Official Azure Certification Resources</h3>
+                  <div className="grid gap-4">
+                    <a 
+                      href="https://learn.microsoft.com/en-us/certifications/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-cyber-teal hover:text-cyber-teal/80 transition-colors flex items-center gap-2"
+                    >
+                      Microsoft Learn Certifications
+                      <ArrowLeft className="h-4 w-4" />
+                    </a>
+                    <a 
+                      href="https://learn.microsoft.com/en-us/certifications/azure/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-cyber-teal hover:text-cyber-teal/80 transition-colors flex items-center gap-2"
+                    >
+                      Azure Certifications
+                      <ArrowLeft className="h-4 w-4" />
+                    </a>
+                  </div>
+                </div>
+              </>
+            ) : categoryId === 'cloud-computing' && cloudProvider === 'google' ? (
+              <>
+                {renderCertificationGroup("Foundational Level", groupedGcpCertifications?.foundational || [])}
+                {renderCertificationGroup("Associate Level", groupedGcpCertifications?.associate || [])}
+                {renderCertificationGroup("Expert Level", groupedGcpCertifications?.expert || [])}
+                
+                <div className="mt-12 pt-8 border-t border-cyber-teal/20">
+                  <h3 className="text-xl font-bold text-white mb-4">Official Google Cloud Certification Resources</h3>
+                  <div className="grid gap-4">
+                    <a 
+                      href="https://cloud.google.com/certification"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-cyber-teal hover:text-cyber-teal/80 transition-colors flex items-center gap-2"
+                    >
+                      Google Cloud Certifications
+                      <ArrowLeft className="h-4 w-4" />
+                    </a>
+                    <a 
+                      href="https://www.cloudskillsboost.google/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-cyber-teal hover:text-cyber-teal/80 transition-colors flex items-center gap-2"
+                    >
+                      Google Cloud Skills Boost
+                      <ArrowLeft className="h-4 w-4" />
+                    </a>
+                  </div>
+                </div>
               </>
             ) : (
-              <div className="certification-roadmaps">
-                <h3 className="text-xl font-bold text-white mb-6">Certification Roadmaps</h3>
-                
-                {categoryId === 'cloud-computing' && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    {cloudProvider === 'aws' && (
-                      <div className="glass-card p-6 rounded-lg">
-                        <h4 className="text-lg font-bold text-white mb-4">AWS Certification Path</h4>
-                        <div className="space-y-4">
-                          <div className="relative pl-6 border-l-2 border-cyber-teal pb-4">
-                            <div className="absolute w-3 h-3 bg-cyber-teal rounded-full -left-[7px]"></div>
-                            <h5 className="text-cyber-yellow font-medium">Step 1: Foundational</h5>
-                            <p className="text-cyber-slate">AWS Certified Cloud Practitioner</p>
-                          </div>
-                          <div className="relative pl-6 border-l-2 border-cyber-teal pb-4">
-                            <div className="absolute w-3 h-3 bg-cyber-teal rounded-full -left-[7px]"></div>
-                            <h5 className="text-cyber-yellow font-medium">Step 2: Associate</h5>
-                            <p className="text-cyber-slate">Choose one or more:</p>
-                            <ul className="list-disc list-inside text-cyber-slate ml-4">
-                              <li>Solutions Architect Associate</li>
-                              <li>Developer Associate</li>
-                              <li>SysOps Administrator Associate</li>
-                            </ul>
-                          </div>
-                          <div className="relative pl-6 border-l-2 border-cyber-teal">
-                            <div className="absolute w-3 h-3 bg-cyber-teal rounded-full -left-[7px]"></div>
-                            <h5 className="text-cyber-yellow font-medium">Step 3: Professional</h5>
-                            <p className="text-cyber-slate">Choose one or more:</p>
-                            <ul className="list-disc list-inside text-cyber-slate ml-4">
-                              <li>Solutions Architect Professional</li>
-                              <li>DevOps Engineer Professional</li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-
-                    {cloudProvider === 'azure' && (
-                      <div className="glass-card p-6 rounded-lg">
-                        <h4 className="text-lg font-bold text-white mb-4">Azure Certification Path</h4>
-                        <div className="space-y-4">
-                          <div className="relative pl-6 border-l-2 border-cyber-teal pb-4">
-                            <div className="absolute w-3 h-3 bg-cyber-teal rounded-full -left-[7px]"></div>
-                            <h5 className="text-cyber-yellow font-medium">Step 1: Fundamentals</h5>
-                            <p className="text-cyber-slate">Azure Fundamentals (AZ-900)</p>
-                          </div>
-                          <div className="relative pl-6 border-l-2 border-cyber-teal pb-4">
-                            <div className="absolute w-3 h-3 bg-cyber-teal rounded-full -left-[7px]"></div>
-                            <h5 className="text-cyber-yellow font-medium">Step 2: Associate</h5>
-                            <p className="text-cyber-slate">Azure Administrator (AZ-104)</p>
-                          </div>
-                          <div className="relative pl-6 border-l-2 border-cyber-teal">
-                            <div className="absolute w-3 h-3 bg-cyber-teal rounded-full -left-[7px]"></div>
-                            <h5 className="text-cyber-yellow font-medium">Step 3: Expert</h5>
-                            <p className="text-cyber-slate">Azure Solutions Architect (AZ-305)</p>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-
-                    {cloudProvider === 'google' && (
-                      <div className="glass-card p-6 rounded-lg">
-                        <h4 className="text-lg font-bold text-white mb-4">Google Cloud Path</h4>
-                        <div className="space-y-4">
-                          <div className="relative pl-6 border-l-2 border-cyber-teal pb-4">
-                            <div className="absolute w-3 h-3 bg-cyber-teal rounded-full -left-[7px]"></div>
-                            <h5 className="text-cyber-yellow font-medium">Step 1: Foundational</h5>
-                            <p className="text-cyber-slate">Cloud Digital Leader</p>
-                          </div>
-                          <div className="relative pl-6 border-l-2 border-cyber-teal pb-4">
-                            <div className="absolute w-3 h-3 bg-cyber-teal rounded-full -left-[7px]"></div>
-                            <h5 className="text-cyber-yellow font-medium">Step 2: Associate</h5>
-                            <p className="text-cyber-slate">Associate Cloud Engineer</p>
-                          </div>
-                          <div className="relative pl-6 border-l-2 border-cyber-teal">
-                            <div className="absolute w-3 h-3 bg-cyber-teal rounded-full -left-[7px]"></div>
-                            <h5 className="text-cyber-yellow font-medium">Step 3: Professional</h5>
-                            <p className="text-cyber-slate">Choose one or more:</p>
-                            <ul className="list-disc list-inside text-cyber-slate ml-4">
-                              <li>Professional Cloud Architect</li>
-                              <li>Professional Data Engineer</li>
-                              <li>Professional Cloud Developer</li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                )}
-
-                {/* For other categories - generic roadmap view */}
-                {categoryId !== 'cloud-computing' && filteredCertifications.length > 0 && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    {filteredCertifications
-                      .filter(cert => cert.roadmap && cert.roadmap.length > 0)
-                      .map(cert => (
-                        <div key={cert.id} className="glass-card p-6 rounded-lg">
-                          <h4 className="text-lg font-bold text-white mb-4">{cert.provider} Certification Path</h4>
-                          <div className="space-y-4">
-                            {cert.roadmap?.map((step, index) => (
-                              <div key={index} className="relative pl-6 border-l-2 border-cyber-teal pb-4 last:pb-0 last:border-0">
-                                <div className="absolute w-3 h-3 bg-cyber-teal rounded-full -left-[7px]"></div>
-                                <h5 className="text-cyber-yellow font-medium">Step {index + 1}</h5>
-                                <p className="text-cyber-slate">{step}</p>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
-                  </div>
-                )}
+              <div>
+                {renderCertificationGroup("Certifications", filteredCertifications)}
               </div>
             )}
           </div>

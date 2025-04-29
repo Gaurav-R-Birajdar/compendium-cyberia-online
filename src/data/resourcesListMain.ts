@@ -12,6 +12,7 @@ import { resourcesBlockchain } from './resourcesListBlockchain';
 import { resourcesCloudComputing } from './resourcesListCloudComputing';
 import { resourcesDigitalForensics } from './resourcesListDigitalForensics';
 import { resourcesNetworking } from './resourcesListNetworking';
+import { resourcesHindi } from './resourcesListHindi';
 
 export const resourcesMain: Resource[] = [
   ...resourcesProgramming,
@@ -25,4 +26,5 @@ export const resourcesMain: Resource[] = [
   ...resourcesCloudComputing,
   ...resourcesDigitalForensics,
   ...resourcesNetworking,
+  ...resourcesHindi,
 ];
